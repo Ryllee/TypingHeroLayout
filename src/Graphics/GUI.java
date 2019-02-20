@@ -2,7 +2,6 @@ package Graphics;
 
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 
 public class GUI extends BorderPane {
 
@@ -26,7 +25,6 @@ public class GUI extends BorderPane {
 
     private void setLayoutPointCounterPanel(PointCounterPanel pointcounterpanel){
         pointcounterpanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        pointcounterpanel.getChildren().add(new Text("TEST"));
         pointcounterpanel.setPrefHeight(100);
     }
 

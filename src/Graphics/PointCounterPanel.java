@@ -1,6 +1,7 @@
 package Graphics;
 
-import GameLogic.PointHandler;
+
+import Notifydata.PointData;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
@@ -9,21 +10,25 @@ import java.util.Observer;
 
 
 public class PointCounterPanel extends HBox implements Observer {
-    Text points;
-    Text totalPoints;
+    Text textpoints;
+    Text texttotalPoints;
 
     public PointCounterPanel(){
-        points = new Text("0");
-        totalPoints = new Text("0");
-        getChildren().add(points);
-        getChildren().add(totalPoints);
+        getChildren().add(new Text(" POINTS: "));
+        textpoints = new Text("0");
+        getChildren().add(textpoints);
+        getChildren().add(new Text(" TOTALPOINTS: "));
+        texttotalPoints = new Text("0");
+        getChildren().add(texttotalPoints);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        if(arg instanceof PointHandler){
-            Float f = ((PointHandler) arg).getPoints();
-            points.setText(f.toString());
+        if(arg instanceof PointData){
+            Float points = ((PointData) arg).points;
+            textpoints.setText(points.toString());
+            Float totalpoints = ((PointData) arg).totalPoints;
+            texttotalPoints.setText(totalpoints.toString());
         }
     }
 }

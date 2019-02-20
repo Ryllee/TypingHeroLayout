@@ -1,5 +1,7 @@
 package GameLogic;
 
+import Notifydata.PointData;
+
 import java.util.Observable;
 
 public class PointHandler extends Observable {
@@ -22,9 +24,9 @@ public class PointHandler extends Observable {
         this.pointsPerSec = pointsPerSec;
     }
 
-    public void updatenotify(){
+    public void updateNotify(){
         setChanged();
-        notifyObservers(this);
+        notifyObservers(new PointData(points,totalPoints,pointsPerSec));
     }
     public float getPoints(){
         return points;
@@ -40,7 +42,7 @@ public class PointHandler extends Observable {
     }
 
     public void addPointsPerLetter(float pointsToAdd){
-        pointsPerLetter += pointsToAdd;
+        pointsPerLetter = pointsPerLetter * pointsToAdd;
     }
 
     public void addPointsPerSec(float pointsToAdd){
@@ -51,6 +53,7 @@ public class PointHandler extends Observable {
     {
         points += pointsToAdd;
         totalPoints += pointsToAdd;
+        updateNotify();
     }
 
     private void removePoints(float pointsToRemove)
@@ -61,13 +64,14 @@ public class PointHandler extends Observable {
     public boolean purchase(float cost){
         if(points >= cost){
             removePoints(cost);
+            updateNotify();
             return true;
         }
         return false;
     }
 
-    public void wordCorrect(float wordlenght){
-        addPoints((wordlenght * pointsPerLetter));
+    public void wordCorrect(float wordlength){
+        addPoints((wordlength * pointsPerLetter));
     }
 
 }

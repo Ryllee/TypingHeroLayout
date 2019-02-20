@@ -11,6 +11,6 @@ public class PointsPerLetterUpgrade extends Upgrade {
 
     @Override
     public void performUpgrade() {
-        points.addPointsPerLetter(1);
+        points.addPointsPerLetter(1.5f);
     }
 }

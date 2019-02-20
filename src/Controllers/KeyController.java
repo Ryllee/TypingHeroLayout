@@ -13,5 +13,6 @@ public class KeyController implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent event) {
+        wordhandler.keyPressed(event.getText());
     }
 }

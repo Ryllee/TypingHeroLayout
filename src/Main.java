@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
+
     public static void main(String[] args)
     {
         launch(args);
@@ -21,9 +22,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        WordLoader loader = new WordLoader();
+
+
         // CREATES HANDLER
         PointHandler points = new PointHandler();
-        WordHandler words = new WordHandler(new ArrayList<String>(),points);
+        WordHandler words = new WordHandler(loader.loadWords(),points);
         UpgradeHandler upgrades = new UpgradeHandler(points);
 
         BorderPane mainWindow = new BorderPane();
@@ -49,11 +53,12 @@ public class Main extends Application {
         mainWindow.setTop(menu);
         mainWindow.setCenter(gui);
 
-        // CREATE SCEN
+        // CREATE SCENE
         primaryStage.setScene(new Scene(mainWindow,600,600));
 
         // INIT
-        points.updatenotify();
+        points.updateNotify();
+        words.updateNotify();
 
         //ADD EVENTHANDLERS
         primaryStage.getScene().setOnKeyPressed(new KeyController(words));
