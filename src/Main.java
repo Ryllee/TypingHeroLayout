@@ -71,4 +71,9 @@ public class Main extends Application {
         PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(points, "PointsPerLetterUpgrade", "Increase your PointsPerLetter by one", 10,0,10);
         upgrades.addUpgrade(letterUpgrade);
     }
+
+    private static void createUpgrades(PointHandler points, UpgradeHandler upgrades, float cost, int currentLevel){
+        PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(points, "PointsPerLetterUpgrade", "Increase your PointsPerLetter by one", cost,currentLevel,10);
+        upgrades.addUpgrade(letterUpgrade);
+    }
 }
