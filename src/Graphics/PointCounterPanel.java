@@ -3,6 +3,7 @@ package Graphics;
 
 import Notifydata.PointData;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 import java.util.Observable;
@@ -12,13 +13,23 @@ import java.util.Observer;
 public class PointCounterPanel extends HBox implements Observer {
     Text textpoints;
     Text texttotalPoints;
+    Text statictextpoints;
+    Text statictexttotalPoints;
 
     public PointCounterPanel(){
-        getChildren().add(new Text(" POINTS: "));
+        super(25);
+        statictextpoints = new Text("POINTS: ");
+        getChildren().add(statictextpoints);
+        statictextpoints.setFont(Font.font("Comic Sans MS", 20));
         textpoints = new Text("0");
+        textpoints.setFont(Font.font("Comic Sans MS", 20));
         getChildren().add(textpoints);
-        getChildren().add(new Text(" TOTALPOINTS: "));
+
+        statictexttotalPoints = new Text("TOTALPOINTS: ");
+        statictexttotalPoints.setFont(Font.font("Comic Sans MS", 20));
+        getChildren().add(statictexttotalPoints);
         texttotalPoints = new Text("0");
+        texttotalPoints.setFont(Font.font("Comic Sans MS", 20));
         getChildren().add(texttotalPoints);
     }
 

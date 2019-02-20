@@ -25,7 +25,7 @@ public class GUI extends BorderPane {
 
     private void setLayoutPointCounterPanel(PointCounterPanel pointcounterpanel){
         pointcounterpanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        pointcounterpanel.setPrefHeight(100);
+        pointcounterpanel.setPrefHeight(50);
     }
 
 }

@@ -26,7 +26,9 @@ public abstract class Upgrade {
                 currentLevel++;
                 return true;
             }
+            System.out.println("Not enough points");
         }
+        System.out.println("Max level reached");
         return false;
     }
 
