@@ -41,12 +41,15 @@ public class Main extends Application {
         //CREATE UPGRADES
         createUpgrades(points,upgrades);
 
+        // CREATE GUI
         GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel);
 
+        // CREATE MENYBAR
         Menubar menu = new Menubar();
         mainWindow.setTop(menu);
         mainWindow.setCenter(gui);
 
+        // CREATE SCEN
         primaryStage.setScene(new Scene(mainWindow,600,600));
 
         // INIT
@@ -54,10 +57,12 @@ public class Main extends Application {
 
         //ADD EVENTHANDLERS
         primaryStage.getScene().setOnKeyPressed(new KeyController(words));
+
+        // SHOW SCENE
         primaryStage.show();
     }
 
-    public static void createUpgrades(PointHandler points, UpgradeHandler upgrades){
+    private static void createUpgrades(PointHandler points, UpgradeHandler upgrades){
         PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(points, "PointsPerLetterUpgrade", "Increase your PointsPerLetter by one", 10,0,10);
         upgrades.addUpgrade(letterUpgrade);
     }
