@@ -26,9 +26,9 @@ public class Main extends Application {
 
 
         // CREATES HANDLER
-        PointHandler points = new PointHandler();
-        WordHandler words = new WordHandler(loader.loadWords(),points);
-        UpgradeHandler upgrades = new UpgradeHandler(points);
+        PointHandler pointhandler = new PointHandler();
+        WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler);
+        UpgradeHandler upgradehandler = new UpgradeHandler();
 
         BorderPane mainWindow = new BorderPane();
 
@@ -38,12 +38,12 @@ public class Main extends Application {
         UpgradePanel upgradepanel = new UpgradePanel();
 
         // ADD OBSERVERS
-        words.addObserver(wordpanel);
-        points.addObserver(pointcounterpanel);
-        upgrades.addObserver(upgradepanel);
+        wordhandler.addObserver(wordpanel);
+        pointhandler.addObserver(pointcounterpanel);
+        upgradehandler.addObserver(upgradepanel);
 
         //CREATE UPGRADES
-        createUpgrades(points,upgrades);
+        createUpgrades(pointhandler,upgradehandler);
 
         // CREATE GUI
         GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel);
@@ -57,11 +57,11 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(mainWindow,600,600));
 
         // INIT
-        points.updateNotify();
-        words.updateNotify();
+        pointhandler.updateNotify();
+        wordhandler.updateNotify();
 
         //ADD EVENTHANDLERS
-        primaryStage.getScene().setOnKeyPressed(new KeyController(words));
+        primaryStage.getScene().setOnKeyPressed(new KeyController(wordhandler));
 
         // SHOW SCENE
         primaryStage.show();

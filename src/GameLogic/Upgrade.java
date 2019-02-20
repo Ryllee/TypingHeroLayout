@@ -1,15 +1,15 @@
 package GameLogic;
 
 public abstract class Upgrade {
-    protected PointHandler points;
+    protected PointHandler pointhandler;
     private String name;
     private String description;
     private float cost;
     private int currentLevel;
     private int maxLevel;
 
-    public Upgrade(PointHandler points, String name, String description, float cost, int currentLevel, int maxLevel){
-        this.points = points;
+    public Upgrade(PointHandler pointhandler, String name, String description, float cost, int currentLevel, int maxLevel){
+        this.pointhandler = pointhandler;
         this.name = name;
         this.description = description;
         this.cost = cost;
@@ -20,7 +20,7 @@ public abstract class Upgrade {
     public boolean purchaseUpgrade(){
         if(currentLevel < maxLevel) {
             System.out.println("pressed");
-            if (points.purchase(cost)) {
+            if (pointhandler.purchase(cost)) {
                 performUpgrade();
                 cost = cost * 1.5f;
                 currentLevel++;

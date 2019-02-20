@@ -4,24 +4,23 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 public class UpgradeHandler extends Observable {
-    private PointHandler points;
-    private ArrayList<Upgrade> upgrades;
+    private ArrayList<Upgrade> upgradelist;
 
-    public UpgradeHandler(PointHandler points)
+    public UpgradeHandler()
     {
-        upgrades = new ArrayList<Upgrade>();
-        this.points = points;
+        upgradelist = new ArrayList<Upgrade>();
     }
 
     public void upgradeButtonPressed(int ButtonIndex){
-        if(upgrades.get(ButtonIndex).purchaseUpgrade()){
+        if(upgradelist.get(ButtonIndex).purchaseUpgrade()){
             setChanged();
             notifyObservers();
+
         }
     }
 
     public void addUpgrade(Upgrade upgrade){
-        upgrades.add(upgrade);
+        upgradelist.add(upgrade);
         setChanged();
         notifyObservers(upgrade);
     }

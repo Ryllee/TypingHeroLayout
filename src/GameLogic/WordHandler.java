@@ -7,13 +7,13 @@ import java.util.Observable;
 
 public class WordHandler extends Observable {
     private ArrayList<String> wordList;
-    private PointHandler points;
+    private PointHandler pointhandler;
     private int currentLetterIndex;
     private int currentWordIndex;
 
     public WordHandler(ArrayList<String> wordList,PointHandler points){
         this.wordList = wordList;
-        this.points = points;
+        this.pointhandler = points;
         currentLetterIndex = 0;
         currentWordIndex = 0;
     }
@@ -48,7 +48,7 @@ public class WordHandler extends Observable {
        notifyObservers(new WordData(2,getCurrentWord(),currentLetterIndex));
    }
    private void nextWord(){
-        points.wordCorrect(getCurrentWordLength());
+        pointhandler.wordCorrect(getCurrentWordLength());
         currentWordIndex++;
         currentLetterIndex = 0;
        setChanged();

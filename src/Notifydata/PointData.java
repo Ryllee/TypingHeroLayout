@@ -6,9 +6,9 @@ public class PointData {
     public float pointsPerSec;
 
 
-    public PointData(float p, float pt, float pps){
-        points = p;
-        totalPoints = pt;
-        pointsPerSec = pps;
+    public PointData(float points, float totalPoints, float pointsPerSec){
+        this.points = points;
+        this.totalPoints = totalPoints;
+        this.pointsPerSec = pointsPerSec;
     }
 }

@@ -13,7 +13,7 @@ public class WordPanel extends StackPane implements Observer {
     private Text word;
 
     public WordPanel() {
-        word = new Text("hej");
+        word = new Text("Start");
         word.setFont(Font.font("Comic Sans MS", 35));
         getChildren().add(word);
     }

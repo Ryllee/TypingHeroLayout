@@ -5,12 +5,12 @@ import GameLogic.Upgrade;
 
 public class PointsPerLetterUpgrade extends Upgrade {
 
-    public PointsPerLetterUpgrade(PointHandler points, String name, String description, float cost, int currentLevel, int maxLevel){
-        super(points, name, description, cost, currentLevel, maxLevel);
+    public PointsPerLetterUpgrade(PointHandler pointhandler, String name, String description, float cost, int currentLevel, int maxLevel){
+        super(pointhandler, name, description, cost, currentLevel, maxLevel);
     }
 
     @Override
     public void performUpgrade() {
-        points.addPointsPerLetter(1.5f);
+        pointhandler.addPointsPerLetter(1.5f);
     }
 }

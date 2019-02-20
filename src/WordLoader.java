@@ -21,7 +21,6 @@ public class WordLoader {
         ArrayList<String> result = new ArrayList<String>();
         try{
             while((line=fileread.readLine()) != null){
-
                 result.add(line);
             }
         }
