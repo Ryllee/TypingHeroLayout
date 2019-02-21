@@ -9,24 +9,31 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 public class LetterGraphics extends Text {
+    private ScaleTransition idleAnimation;
     public LetterGraphics(char c) {
         super(String.valueOf(c));
         setFont(Font.font("Helvetica", FontWeight.EXTRA_BOLD, 90));
-        ScaleTransition st = new ScaleTransition(Duration.millis(1000), this);
-        st.setToY(1.25f);
-        st.setToX(1.25f);
-        st.setCycleCount(Animation.INDEFINITE);
-        st.setAutoReverse(true);
-        st.play();
+        createAnimations();
+        idleAnimation.play();
     }
 
     public void correct() {
+        //TODO: Maybe animation here?
         setFill(Color.LIMEGREEN);
-
     }
 
     public void incorrect() {
+        //TODO: And here?
         setFill(Color.RED);
+    }
 
+    private void createAnimations() {
+        // Idle
+        idleAnimation = new ScaleTransition(Duration.millis(1000), this);
+        idleAnimation.setToY(1.25f);
+        idleAnimation.setToX(1.25f);
+        idleAnimation.setCycleCount(Animation.INDEFINITE);
+        idleAnimation.setAutoReverse(true);
+        //TODO: add more animations?
     }
 }

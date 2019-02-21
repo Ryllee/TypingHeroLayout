@@ -30,11 +30,7 @@ public class WordPanel extends StackPane implements Observer {
                     break;
 
                 case 3:
-                    try {
-                        getChildren().remove(currentWord); //Needs to catch index out of bounds on first word, not initialized
-                    } catch (IndexOutOfBoundsException e) {
-
-                    }
+                    getChildren().remove(currentWord);
                     currentWord = new WordGraphics(((WordData) arg).word);
                     currentWord.setAlignment(Pos.CENTER);
                     getChildren().add(currentWord);
