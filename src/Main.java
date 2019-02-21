@@ -1,4 +1,5 @@
 import Controllers.KeyController;
+import GameLogic.MenubarHandler;
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
 import GameLogic.WordHandler;
@@ -29,18 +30,22 @@ public class Main extends Application {
         PointHandler pointhandler = new PointHandler();
         WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler);
         UpgradeHandler upgradehandler = new UpgradeHandler();
-
-        BorderPane mainWindow = new BorderPane();
+        MenubarHandler menubarhandler = new MenubarHandler(pointhandler);
 
         // CREATES PANELS
+        BorderPane mainWindow = new BorderPane();
         WordPanel wordpanel = new WordPanel();
         PointCounterPanel pointcounterpanel = new PointCounterPanel();
         UpgradePanel upgradepanel = new UpgradePanel();
+
+        // CREATE MENYBAR
+        Menubar menu = new Menubar();
 
         // ADD OBSERVERS
         wordhandler.addObserver(wordpanel);
         pointhandler.addObserver(pointcounterpanel);
         upgradehandler.addObserver(upgradepanel);
+        menubarhandler.addObserver(menu);
 
         //CREATE UPGRADES
         createUpgrades(pointhandler,upgradehandler);
@@ -48,17 +53,16 @@ public class Main extends Application {
         // CREATE GUI
         GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel);
 
-        // CREATE MENYBAR
-        Menubar menu = new Menubar();
-        mainWindow.setTop(menu);
-        mainWindow.setCenter(gui);
 
         // CREATE SCENE
+        mainWindow.setTop(menu);
+        mainWindow.setCenter(gui);
         primaryStage.setScene(new Scene(mainWindow,600,600));
 
         // INIT
         pointhandler.updateNotify();
         wordhandler.updateNotify();
+        menubarhandler.updateNotify();
 
         //ADD EVENTHANDLERS
         primaryStage.getScene().setOnKeyPressed(new KeyController(wordhandler));

@@ -35,6 +35,8 @@ public abstract class Upgrade {
     public String getName(){
         return name;
     }
+    public float getCost(){return cost;}
+    public int getcurrentLevel() {return currentLevel;}
 
     public abstract void performUpgrade();
 }
