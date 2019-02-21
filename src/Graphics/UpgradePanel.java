@@ -2,6 +2,7 @@ package Graphics;
 
 import Controllers.UpgradeController;
 import GameLogic.Upgrade;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -18,6 +19,8 @@ public class UpgradePanel extends VBox implements Observer {
             Button upgradeButton = new Button(((Upgrade) arg).getName());
             upgradeButton.setOnAction(new UpgradeController((Upgrade)arg));
             upgradeButton.setPrefHeight(50);
+            upgradeButton.setStyle("-fx-background-radius: 10");
+            setMargin(upgradeButton, new Insets(10,10,10,10));
             getChildren().add(upgradeButton);
         }
     }
