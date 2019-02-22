@@ -15,7 +15,7 @@ public class SaveWriter {
     private float pointsPerSec;
 
 
-    SaveWriter(float points, float totalPoints,float pointsPerLetter,float pointsPerSec){
+    public SaveWriter(float points, float totalPoints,float pointsPerLetter,float pointsPerSec){
 
         username = "Rylle";
         this.points = points;
