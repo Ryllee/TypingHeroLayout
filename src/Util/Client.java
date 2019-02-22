@@ -1,7 +1,7 @@
-package Network;
+package Util;
 
 
-import GameLogic.SaveWriter;
+import Util.SaveWriter;
 
 import java.io.*;
 import java.net.Socket;

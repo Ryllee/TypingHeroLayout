@@ -1,4 +1,4 @@
-package GameLogic;
+package Util;
 
 import java.io.File;
 import java.io.FileWriter;

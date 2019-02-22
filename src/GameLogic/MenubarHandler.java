@@ -1,6 +1,7 @@
 package GameLogic;
 
-import Network.Client;
+import Util.Client;
+import Util.SaveWriter;
 
 import java.util.Observable;
 
