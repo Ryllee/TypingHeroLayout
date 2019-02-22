@@ -20,16 +20,16 @@ public class PointCounterPanel extends HBox implements Observer {
         super(25);
         statictextpoints = new Text("POINTS: ");
         getChildren().add(statictextpoints);
-        statictextpoints.setFont(Font.font("Comic Sans MS", 20));
+        statictextpoints.setFont(Font.font("Helvetica", 20));
         textpoints = new Text("0");
-        textpoints.setFont(Font.font("Comic Sans MS", 20));
+        textpoints.setFont(Font.font("Helvetica", 20));
         getChildren().add(textpoints);
 
         statictexttotalPoints = new Text("TOTALPOINTS: ");
-        statictexttotalPoints.setFont(Font.font("Comic Sans MS", 20));
+        statictexttotalPoints.setFont(Font.font("Helvetica", 20));
         getChildren().add(statictexttotalPoints);
         texttotalPoints = new Text("0");
-        texttotalPoints.setFont(Font.font("Comic Sans MS", 20));
+        texttotalPoints.setFont(Font.font("Helvetica", 20));
         getChildren().add(texttotalPoints);
     }
 
