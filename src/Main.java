@@ -1,4 +1,6 @@
 import Controllers.KeyController;
+import Controllers.MenubarControllers.SaveLocalController;
+import Controllers.MenubarControllers.SaveServerController;
 import Controllers.UpgradeController;
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
@@ -32,6 +34,8 @@ public class Main extends Application {
 
         // CREATE CONTROLLER
         UpgradeController upgradecontroller = new UpgradeController(upgradehandler);
+        SaveLocalController savelocalcontroller = new SaveLocalController();
+        SaveServerController saveservercontroller = new SaveServerController();
 
         // CREATES PANELS
         BorderPane mainWindow = new BorderPane();
@@ -49,7 +53,7 @@ public class Main extends Application {
         createUpgrades(pointhandler,upgradehandler);
 
         // CREATE MENYBAR
-        Menubar menu = new Menubar();
+        Menubar menu = new Menubar(savelocalcontroller,saveservercontroller);
         mainWindow.setTop(menu);
         mainWindow.setCenter(gui);
 
