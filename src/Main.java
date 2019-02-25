@@ -7,6 +7,7 @@ import GameLogic.UpgradeHandler;
 import GameLogic.WordHandler;
 import Graphics.*;
 
+import THutil.SaveDataExtractor;
 import THutil.WordLoader;
 import Upgrades.PointsPerLetterUpgrade;
 import javafx.application.Application;
@@ -32,9 +33,13 @@ public class Main extends Application {
         WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler);
         UpgradeHandler upgradehandler = new UpgradeHandler();
 
+        // CREATE DATAEXTRACTOR
+
+        SaveDataExtractor savedataextractor = new SaveDataExtractor(pointhandler,upgradehandler);
+
         // CREATE CONTROLLER
         UpgradeController upgradecontroller = new UpgradeController(upgradehandler);
-        SaveLocalController savelocalcontroller = new SaveLocalController();
+        SaveLocalController savelocalcontroller = new SaveLocalController(savedataextractor);
         SaveServerController saveservercontroller = new SaveServerController();
 
         // CREATES PANELS

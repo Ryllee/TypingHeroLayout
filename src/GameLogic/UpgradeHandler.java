@@ -21,7 +21,14 @@ public class UpgradeHandler extends Observable {
         }
     }
 
-
+    public ArrayList<UpgradeData> getUpgradeDataList(){
+        ArrayList<UpgradeData> returnList = new ArrayList<>();
+        for(int index = 0; index < upgradelist.size(); index++){
+            Upgrade current = upgradelist.get(index);
+            returnList.add(new UpgradeData(index,current.getCurrentLevel(),current.getName()));
+        }
+        return returnList;
+    }
 
     public void addUpgrade(Upgrade upgrade){
         upgradelist.add(upgrade);

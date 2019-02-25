@@ -26,7 +26,11 @@ public class PointHandler extends Observable {
 
     public void updateNotify(){
         setChanged();
-        notifyObservers(new PointData(points,totalPoints,pointsPerSec));
+        notifyObservers(getPointData());
+    }
+
+    public PointData getPointData(){
+        return new PointData(points,totalPoints,pointsPerLetter,pointsPerSec);
     }
     public float getPoints(){
         return points;
