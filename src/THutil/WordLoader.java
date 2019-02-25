@@ -1,3 +1,5 @@
+package THutil;
+
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
@@ -5,7 +7,7 @@ import java.util.ArrayList;
 public class WordLoader {
     File wordFile;
     BufferedReader fileread;
-//C:\Users\rylle\Documents\dev\TypingHeroLayout\src\1-1000.txt
+
     public WordLoader(){
         URL url = getClass().getResource("1-1000.txt");
         wordFile = new File(url.getPath());

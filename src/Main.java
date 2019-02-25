@@ -1,16 +1,16 @@
 import Controllers.KeyController;
+import Controllers.UpgradeController;
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
 import GameLogic.WordHandler;
 import Graphics.*;
 
+import THutil.WordLoader;
 import Upgrades.PointsPerLetterUpgrade;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -30,12 +30,15 @@ public class Main extends Application {
         WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler);
         UpgradeHandler upgradehandler = new UpgradeHandler();
 
-        BorderPane mainWindow = new BorderPane();
+        // CREATE CONTROLLER
+        UpgradeController upgradecontroller = new UpgradeController(upgradehandler);
 
         // CREATES PANELS
+        BorderPane mainWindow = new BorderPane();
         WordPanel wordpanel = new WordPanel();
         PointCounterPanel pointcounterpanel = new PointCounterPanel();
-        UpgradePanel upgradepanel = new UpgradePanel();
+        UpgradePanel upgradepanel = new UpgradePanel(upgradecontroller);
+        GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel);
 
         // ADD OBSERVERS
         wordhandler.addObserver(wordpanel);
@@ -44,9 +47,6 @@ public class Main extends Application {
 
         //CREATE UPGRADES
         createUpgrades(pointhandler,upgradehandler);
-
-        // CREATE GUI
-        GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel);
 
         // CREATE MENYBAR
         Menubar menu = new Menubar();
@@ -67,13 +67,8 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    private static void createUpgrades(PointHandler points, UpgradeHandler upgrades){
-        PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(points, "PointsPerLetterUpgrade", "Increase your PointsPerLetter by one", 10,0,10);
-        upgrades.addUpgrade(letterUpgrade);
-    }
-
-    private static void createUpgrades(PointHandler points, UpgradeHandler upgrades, float cost, int currentLevel){
-        PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(points, "PointsPerLetterUpgrade", "Increase your PointsPerLetter by one", cost,currentLevel,10);
+    private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades){
+        PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(pointhandler);
         upgrades.addUpgrade(letterUpgrade);
     }
 }

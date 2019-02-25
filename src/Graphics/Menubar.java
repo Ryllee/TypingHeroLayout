@@ -8,8 +8,10 @@ public class Menubar extends MenuBar {
 
     public Menubar(){
         Menu file = new Menu("File");
-        MenuItem save = new MenuItem("Save");
-        file.getItems().add(save);
+        MenuItem saveToFile = new MenuItem("Save to file");
+        MenuItem saveToServer = new MenuItem("Save to server");
+        file.getItems().add(saveToFile);
+        file.getItems().add(saveToServer);
         getMenus().add(file);
     }
 }

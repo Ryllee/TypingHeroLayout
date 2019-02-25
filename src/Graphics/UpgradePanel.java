@@ -1,7 +1,7 @@
 package Graphics;
 
 import Controllers.UpgradeController;
-import GameLogic.Upgrade;
+import Notifydata.UpgradeData;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
@@ -9,16 +9,21 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class UpgradePanel extends VBox implements Observer {
-
+    private UpgradeController upgradecontroller;
+    public UpgradePanel(UpgradeController upgradecontroller) {
+        this.upgradecontroller = upgradecontroller;
+    }
 
 
     @Override
     public void update(Observable o, Object arg) {
-        if( arg instanceof Upgrade){
-            Button upgradeButton = new Button(((Upgrade) arg).getName());
-            upgradeButton.setOnAction(new UpgradeController((Upgrade)arg));
-            upgradeButton.setPrefHeight(50);
-            getChildren().add(upgradeButton);
+        if( arg instanceof UpgradeData){
+            if (((UpgradeData) arg).index == getChildren().size()) { //new upgrade
+                UpgradeButton upgradeButton = new UpgradeButton(((UpgradeData) arg).name, ((UpgradeData) arg).index);
+                upgradeButton.setOnAction(upgradecontroller);
+                upgradeButton.setPrefHeight(50);
+                getChildren().add(upgradeButton);
+            }
         }
     }
 }
