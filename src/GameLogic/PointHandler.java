@@ -14,7 +14,8 @@ public class PointHandler extends Observable {
         points = 0;
         totalPoints = 0;
         pointsPerLetter = 1;
-        pointsPerSec = 0;
+        pointsPerSec = 0.1f;
+
     }
 
     public PointHandler(float points,float totalPoints, float pointsPerLetter,float pointsPerSec){
@@ -74,8 +75,13 @@ public class PointHandler extends Observable {
         return false;
     }
 
+    public void pointsPerSecTick(){
+        addPoints(pointsPerSec);
+    }
+
     public void wordCorrect(float wordlength){
         addPoints((wordlength * pointsPerLetter));
     }
+
 
 }

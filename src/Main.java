@@ -3,6 +3,7 @@ import Controllers.MenubarControllers.SaveLocalController;
 import Controllers.MenubarControllers.SaveServerController;
 import Controllers.UpgradeController;
 import GameLogic.PointHandler;
+import GameLogic.PointsPerSecondsTask;
 import GameLogic.UpgradeHandler;
 import GameLogic.WordHandler;
 import Graphics.*;
@@ -15,8 +16,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.util.Timer;
+
 public class Main extends Application {
 
+    private Timer timer;
 
     public static void main(String[] args)
     {
@@ -32,6 +36,10 @@ public class Main extends Application {
         PointHandler pointhandler = new PointHandler();
         WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler);
         UpgradeHandler upgradehandler = new UpgradeHandler();
+
+        // CREATE TIMER
+        timer = new Timer();
+        timer.schedule(new PointsPerSecondsTask(pointhandler),0,1000);
 
         // CREATE DATAEXTRACTOR
 
@@ -79,5 +87,11 @@ public class Main extends Application {
     private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades){
         PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(pointhandler);
         upgrades.addUpgrade(letterUpgrade);
+    }
+
+    @Override
+    public void stop() throws Exception {
+        timer.cancel();
+        super.stop();
     }
 }
