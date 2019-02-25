@@ -1,4 +1,5 @@
 import Controllers.KeyController;
+import Controllers.MenubarControllers.LoadLocalController;
 import Controllers.MenubarControllers.SaveLocalController;
 import Controllers.MenubarControllers.SaveServerController;
 import Controllers.UpgradeController;
@@ -60,6 +61,7 @@ public class Main extends Application {
         UpgradeController upgradecontroller = new UpgradeController(upgradehandler);
         SaveLocalController savelocalcontroller = new SaveLocalController(savedataextractor);
         SaveServerController saveservercontroller = new SaveServerController(savedataextractor);
+        LoadLocalController loadlocalcontroller = new LoadLocalController(pointhandler,upgradehandler);
 
         // CREATES PANELS
         BorderPane mainWindow = new BorderPane();
@@ -77,7 +79,7 @@ public class Main extends Application {
         createUpgrades(pointhandler,upgradehandler);
 
         // CREATE MENYBAR
-        Menubar menu = new Menubar(savelocalcontroller,saveservercontroller);
+        Menubar menu = new Menubar(savelocalcontroller,saveservercontroller,loadlocalcontroller);
         mainWindow.setTop(menu);
         mainWindow.setCenter(gui);
 
