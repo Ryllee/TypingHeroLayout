@@ -14,7 +14,7 @@ public class PointHandler extends Observable {
         points = 0;
         totalPoints = 0;
         pointsPerLetter = 1;
-        pointsPerSec = 0.1f;
+        pointsPerSec = 0;
 
     }
 
@@ -46,8 +46,8 @@ public class PointHandler extends Observable {
         return pointsPerSec;
     }
 
-    public void addPointsPerLetter(float pointsToAdd){
-        pointsPerLetter = pointsPerLetter * pointsToAdd;
+    public void addPointsPerLetter(float pointsPerLetterMultiplier){
+        pointsPerLetter = pointsPerLetter * pointsPerLetterMultiplier;
     }
 
     public void addPointsPerSec(float pointsToAdd){

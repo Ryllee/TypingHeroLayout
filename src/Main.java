@@ -11,6 +11,7 @@ import Graphics.*;
 import THutil.FileIO.SaveDataExtractor;
 import THutil.WordLoader;
 import Upgrades.PointsPerLetterUpgrade;
+import Upgrades.PointsPerSecondUpgrade;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
@@ -86,7 +87,9 @@ public class Main extends Application {
 
     private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades){
         PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(pointhandler);
+        PointsPerSecondUpgrade secondUpgrade = new PointsPerSecondUpgrade(pointhandler);
         upgrades.addUpgrade(letterUpgrade);
+        upgrades.addUpgrade(secondUpgrade);
     }
 
     @Override
