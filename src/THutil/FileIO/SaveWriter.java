@@ -1,4 +1,4 @@
-package THutil;
+package THutil.FileIO;
 
 import Notifydata.SaveData;
 import Notifydata.UpgradeData;
@@ -8,7 +8,7 @@ import java.io.FileWriter;
 
 public class SaveWriter {
 
-    public static void writeToFile(SaveData savedata){
+    public static File writeToFile(SaveData savedata){
         File saveFile = new File("Test.txt");
         try{
             FileWriter filewriter = new FileWriter(saveFile);
@@ -24,5 +24,6 @@ public class SaveWriter {
         }catch (Exception e){
             System.out.println(e);
         }
+        return saveFile;
     }
 }

@@ -7,7 +7,7 @@ import GameLogic.UpgradeHandler;
 import GameLogic.WordHandler;
 import Graphics.*;
 
-import THutil.SaveDataExtractor;
+import THutil.FileIO.SaveDataExtractor;
 import THutil.WordLoader;
 import Upgrades.PointsPerLetterUpgrade;
 import javafx.application.Application;
@@ -40,7 +40,7 @@ public class Main extends Application {
         // CREATE CONTROLLER
         UpgradeController upgradecontroller = new UpgradeController(upgradehandler);
         SaveLocalController savelocalcontroller = new SaveLocalController(savedataextractor);
-        SaveServerController saveservercontroller = new SaveServerController();
+        SaveServerController saveservercontroller = new SaveServerController(savedataextractor);
 
         // CREATES PANELS
         BorderPane mainWindow = new BorderPane();
