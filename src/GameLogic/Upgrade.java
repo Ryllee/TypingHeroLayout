@@ -47,5 +47,9 @@ public abstract class Upgrade {
     public float getCost(){return (float) (basecost * (Math.pow( costMultiplier, currentLevel)));}
     public int getCurrentLevel() {return currentLevel;}
 
+    public void setCurrentLevel(int level){
+        currentLevel = level;
+    }
+
     public abstract void performUpgrade();
 }

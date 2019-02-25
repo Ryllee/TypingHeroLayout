@@ -8,7 +8,11 @@ import GameLogic.UpgradeHandler;
 import GameLogic.WordHandler;
 import Graphics.*;
 
+import Notifydata.PointData;
+import Notifydata.SaveData;
+import Notifydata.UpgradeData;
 import THutil.FileIO.SaveDataExtractor;
+import THutil.SaveDataLoader;
 import THutil.WordLoader;
 import Upgrades.PointsPerLetterUpgrade;
 import Upgrades.PointsPerSecondUpgrade;
@@ -17,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.Timer;
 
 public class Main extends Application {
@@ -32,6 +37,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         WordLoader loader = new WordLoader();
 
+       /* TEST FÖR LADDA SAVES
+        ArrayList<UpgradeData> upgradedataListtest = new ArrayList<UpgradeData>();
+        upgradedataListtest.add(new UpgradeData(0,1,"hej"));
+        upgradedataListtest.add(new UpgradeData(1,2,"hej"));
+        SaveData testsave = new SaveData(new PointData(10,10,2,1),upgradedataListtest);*/
 
         // CREATES HANDLER
         PointHandler pointhandler = new PointHandler();
@@ -83,6 +93,8 @@ public class Main extends Application {
 
         // SHOW SCENE
         primaryStage.show();
+
+
     }
 
     private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades){

@@ -30,6 +30,12 @@ public class UpgradeHandler extends Observable {
         return returnList;
     }
 
+    public void loadUpgradeData( ArrayList<UpgradeData> upgradedataList){
+        for(UpgradeData ud : upgradedataList){
+            upgradelist.get(ud.index).setCurrentLevel(ud.level);
+        }
+    }
+
     public void addUpgrade(Upgrade upgrade){
         upgradelist.add(upgrade);
         int upgradeIndex = upgradelist.size() - 1;

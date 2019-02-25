@@ -18,12 +18,6 @@ public class PointHandler extends Observable {
 
     }
 
-    public PointHandler(float points,float totalPoints, float pointsPerLetter,float pointsPerSec){
-        this.points = points;
-        this.totalPoints = totalPoints;
-        this.pointsPerLetter = pointsPerLetter;
-        this.pointsPerSec = pointsPerSec;
-    }
 
     public void updateNotify(){
         setChanged();
@@ -44,6 +38,13 @@ public class PointHandler extends Observable {
     }
     public float getPointsPerSec(){
         return pointsPerSec;
+    }
+
+    public void loadPointData(PointData pointdata){
+        points = pointdata.points;
+        totalPoints = pointdata.totalPoints;
+        pointsPerLetter = pointdata.pointsPerLetter;
+        pointsPerSec = pointdata.pointsPerSec;
     }
 
     public void addPointsPerLetter(float pointsPerLetterMultiplier){
