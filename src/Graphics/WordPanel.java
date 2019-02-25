@@ -1,6 +1,7 @@
 package Graphics;
 
 import Notifydata.WordData;
+import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -10,28 +11,30 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class WordPanel extends StackPane implements Observer {
-    private Text word;
+    private WordGraphics currentWord;
 
     public WordPanel() {
-        word = new Text("Start");
-        word.setFont(Font.font("Comic Sans MS", 35));
-        getChildren().add(word);
+
     }
+
     @Override
     public void update(Observable o, Object arg) {
         if(arg instanceof WordData){
             switch (((WordData) arg).command){
                 case 1:
-                    word.setFill(Color.LIMEGREEN);
+                    currentWord.correctLetter(((WordData) arg).currentLetterIndex);
                     break;
 
                 case 2:
-                    word.setFill(Color.RED);
+                    currentWord.incorrectLetter(((WordData) arg).currentLetterIndex);
                     break;
 
                 case 3:
-                    word.setText(((WordData) arg).word);
-                    word.setFill(Color.BLACK);
+                    getChildren().remove(currentWord);
+                    currentWord = new WordGraphics(((WordData) arg).word);
+                    currentWord.setAlignment(Pos.CENTER);
+                    getChildren().add(currentWord);
+
                     break;
             }
         }
