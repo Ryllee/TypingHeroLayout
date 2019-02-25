@@ -10,12 +10,14 @@ public class WordHandler extends Observable {
     private PointHandler pointhandler;
     private int currentLetterIndex;
     private int currentWordIndex;
+    private int currentStreak;
 
     public WordHandler(ArrayList<String> wordList,PointHandler points){
         this.wordList = wordList;
         this.pointhandler = points;
         currentLetterIndex = 0;
         currentWordIndex = 0;
+        currentStreak = 0;
     }
 
    public String getCurrentWord(){ return wordList.get(currentWordIndex);}
@@ -44,20 +46,22 @@ public class WordHandler extends Observable {
         currentLetterIndex++;
    }
    private void incorrectLetter(){
-       setChanged();
-       notifyObservers(new WordData(2,getCurrentWord(),currentLetterIndex));
+        currentStreak = 0;
+        setChanged();
+        notifyObservers(new WordData(2,getCurrentWord(),currentLetterIndex));
    }
    private void nextWord(){
-        pointhandler.wordCorrect(getCurrentWordLength());
+        pointhandler.wordCorrect(getCurrentWordLength(),currentStreak);
         currentWordIndex++;
         currentLetterIndex = 0;
-       setChanged();
-       notifyObservers(new WordData(3,getCurrentWord(),currentLetterIndex));
+        currentStreak++;
+        setChanged();
+        notifyObservers(new WordData(3,getCurrentWord(),currentLetterIndex));
    }
    private boolean wasLastLetter(){return getCurrentWordLength() == (currentLetterIndex);}
 
    public void updateNotify(){
-       setChanged();
-       notifyObservers(new WordData(3,getCurrentWord(),currentLetterIndex));
+        setChanged();
+        notifyObservers(new WordData(3,getCurrentWord(),currentLetterIndex));
    }
 }

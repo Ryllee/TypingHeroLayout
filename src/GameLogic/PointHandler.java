@@ -79,8 +79,19 @@ public class PointHandler extends Observable {
         addPoints(pointsPerSec);
     }
 
-    public void wordCorrect(float wordlength){
-        addPoints((wordlength * pointsPerLetter));
+    public float getStreakMultiplier(int streak){
+        int streakInterval = 5;
+        int maxStreak = 25;
+        if(streak > maxStreak)
+        {
+            return ((int)(maxStreak/streakInterval)) +1;
+        }
+        System.out.println(((int)(streak/streakInterval)) +1);
+        return ((int)(streak/streakInterval)) +1;
+    }
+
+    public void wordCorrect(float wordlength,int streak){
+        addPoints((wordlength * pointsPerLetter * getStreakMultiplier(streak)));
     }
 
 
