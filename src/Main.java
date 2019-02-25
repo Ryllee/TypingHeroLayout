@@ -63,7 +63,7 @@ public class Main extends Application {
         mainWindow.setCenter(gui);
 
         // CREATE SCENE
-        primaryStage.setScene(new Scene(mainWindow,600,600));
+        primaryStage.setScene(new Scene(mainWindow,900,600));
 
         // INIT
         pointhandler.updateNotify();
