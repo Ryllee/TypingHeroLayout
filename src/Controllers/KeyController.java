@@ -13,6 +13,11 @@ public class KeyController implements EventHandler<KeyEvent> {
 
     @Override
     public void handle(KeyEvent event) {
-        wordhandler.keyPressed(event.getText());
+        if(!event.getText().equals("")) {
+            wordhandler.keyPressed(event.getText());
+        }
+        else{
+            wordhandler.incorrectLetter();
+        }
     }
 }

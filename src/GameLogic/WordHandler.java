@@ -45,7 +45,7 @@ public class WordHandler extends Observable {
         notifyObservers(new WordData(1,getCurrentWord(),currentLetterIndex));
         currentLetterIndex++;
    }
-   private void incorrectLetter(){
+   public void incorrectLetter(){
         currentStreak = 0;
         setChanged();
         notifyObservers(new WordData(2,getCurrentWord(),currentLetterIndex));
