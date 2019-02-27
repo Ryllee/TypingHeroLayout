@@ -24,9 +24,9 @@ public class Main extends Application {
 
     }
 
-    public void launchSinglePlayer(){
+    public void launchSinglePlayer(String username){
         timer = new Timer();
-        SinglePlayer singleplayer = new SinglePlayer("hej",timer,this);
+        SinglePlayer singleplayer = new SinglePlayer(username,timer,this);
         primaryStage.setScene(singleplayer.getScene());
     }
 
