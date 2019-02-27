@@ -1,7 +1,6 @@
 package Graphics;
 
-import javafx.animation.Animation;
-import javafx.animation.ScaleTransition;
+import javafx.animation.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -10,6 +9,8 @@ import javafx.util.Duration;
 
 public class LetterGraphics extends Text {
     private ScaleTransition idleAnimation;
+    private ParallelTransition correctAnimation;
+    private FillTransition incorrectAnimation;
     public LetterGraphics(char c) {
         super(String.valueOf(c));
         setFont(Font.font("Helvetica", FontWeight.EXTRA_BOLD, 90));
@@ -18,13 +19,12 @@ public class LetterGraphics extends Text {
     }
 
     public void correct() {
-        //TODO: Maybe animation here?
-        setFill(Color.LIMEGREEN);
+        incorrectAnimation.stop();
+        correctAnimation.play();
     }
 
     public void incorrect() {
-        //TODO: And here?
-        setFill(Color.RED);
+        incorrectAnimation.play();
     }
 
     private void createAnimations() {
@@ -34,6 +34,23 @@ public class LetterGraphics extends Text {
         idleAnimation.setToX(1.25f);
         idleAnimation.setCycleCount(Animation.INDEFINITE);
         idleAnimation.setAutoReverse(true);
-        //TODO: add more animations?
+
+        //Correct
+        ScaleTransition startCorrectAnimation = new ScaleTransition(Duration.millis(150), this);
+        startCorrectAnimation.setToX(1.5f);
+        startCorrectAnimation.setToY(1.5f);
+        startCorrectAnimation.setCycleCount(2);
+        startCorrectAnimation.setAutoReverse(true);
+
+        FillTransition correctFillAnimaion = new FillTransition(Duration.millis(150), this,Color.BLACK,Color.LIMEGREEN);
+        correctFillAnimaion.setCycleCount(1);
+
+        correctAnimation = new ParallelTransition(this,startCorrectAnimation, correctFillAnimaion);
+
+        //Incorrect
+        incorrectAnimation = new FillTransition(Duration.millis(200), this,Color.BLACK,Color.RED);
+        incorrectAnimation.setCycleCount(5);
+        incorrectAnimation.setAutoReverse(true);
+        
     }
 }
