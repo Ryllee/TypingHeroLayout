@@ -20,8 +20,10 @@ import java.util.Timer;
 public class SinglePlayer {
 
      private BorderPane mainWindow;
+     private Main main;
 
-    public SinglePlayer(String username, Timer timer){
+    public SinglePlayer(String username, Timer timer, Main main){
+        this.main = main;
         WordLoader loader = new WordLoader();
 
        /* TEST FÖR LADDA SAVES
@@ -85,7 +87,7 @@ public class SinglePlayer {
         upgrades.addUpgrade(secondUpgrade);
     }
 
-    public Scene getSinglePlayerScene(){
+    public Scene getScene(){
         return new Scene(mainWindow,900,600);
     }
 }
