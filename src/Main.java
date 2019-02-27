@@ -32,7 +32,9 @@ public class Main extends Application {
 
     @Override
     public void stop() throws Exception {
-        timer.cancel();
+        if(timer != null) {
+            timer.cancel();
+        }
         super.stop();
     }
 }
