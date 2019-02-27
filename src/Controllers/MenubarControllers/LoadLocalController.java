@@ -26,7 +26,7 @@ public class LoadLocalController implements EventHandler<ActionEvent> {
         ArrayList<UpgradeData> upgradedataListtest = new ArrayList<UpgradeData>();
         upgradedataListtest.add(new UpgradeData(0,1,"hej"));
         upgradedataListtest.add(new UpgradeData(1,2,"hej"));
-        SaveData testsave = new SaveData(new PointData(10,10,2,1),upgradedataListtest);
+        SaveData testsave = new SaveData("TEST",new PointData(10,10,2,1),upgradedataListtest);
         SaveDataLoader.loadSaveData(testsave,pointhandler,upgradehandler);
     }
 }

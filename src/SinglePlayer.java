@@ -26,11 +26,6 @@ public class SinglePlayer {
         this.main = main;
         WordLoader loader = new WordLoader();
 
-       /* TEST FÖR LADDA SAVES
-        ArrayList<UpgradeData> upgradedataListtest = new ArrayList<UpgradeData>();
-        upgradedataListtest.add(new UpgradeData(0,1,"hej"));
-        upgradedataListtest.add(new UpgradeData(1,2,"hej"));
-        SaveData testsave = new SaveData(new PointData(10,10,2,1),upgradedataListtest);*/
 
         // CREATES HANDLER
         PointHandler pointhandler = new PointHandler();
@@ -42,7 +37,7 @@ public class SinglePlayer {
 
         // CREATE DATAEXTRACTOR
 
-        SaveDataExtractor savedataextractor = new SaveDataExtractor(pointhandler,upgradehandler);
+        SaveDataExtractor savedataextractor = new SaveDataExtractor(username,pointhandler,upgradehandler);
 
         // CREATE CONTROLLER
         UpgradeController upgradecontroller = new UpgradeController(upgradehandler);

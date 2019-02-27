@@ -12,6 +12,11 @@ public class Client {
         File savefile = SaveWriter.writeToFile(savedata);
         try {
             Socket socket = new Socket("90.229.141.157",9999);
+
+            DataOutputStream sendFilename = new DataOutputStream(socket.getOutputStream());
+            sendFilename.writeUTF(savedata.username+".txt");
+            sendFilename.flush();
+
             byte[] fileSize = new byte[(int) savefile.length()];
             FileInputStream fileIn = new FileInputStream(savefile);
             BufferedInputStream fileBIn = new BufferedInputStream(fileIn);

@@ -8,6 +8,6 @@ public class SaveDataLoader {
 
     public static void loadSaveData(SaveData savedata, PointHandler pointhandler, UpgradeHandler upgradehandler){
         pointhandler.loadPointData(savedata.pointdata);
-        upgradehandler.loadUpgradeData(savedata.upgradedataList);
+        upgradehandler.loadUpgradeData(savedata.upgradeDataList);
     }
 }

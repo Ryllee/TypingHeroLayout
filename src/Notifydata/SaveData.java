@@ -4,11 +4,13 @@ package Notifydata;
 import java.util.ArrayList;
 
 public class SaveData {
+    public String username;
     public PointData pointdata;
-    public ArrayList<UpgradeData> upgradedataList;
+    public ArrayList<UpgradeData> upgradeDataList;
 
-    public SaveData(PointData pointdata, ArrayList<UpgradeData> upgradedataList){
+    public SaveData(String username,PointData pointdata, ArrayList<UpgradeData> upgradeDataList){
+        this.username = username;
         this.pointdata = pointdata;
-        this.upgradedataList = upgradedataList;
+        this.upgradeDataList = upgradeDataList;
     }
 }

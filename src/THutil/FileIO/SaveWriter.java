@@ -9,14 +9,14 @@ import java.io.FileWriter;
 public class SaveWriter {
 
     public static File writeToFile(SaveData savedata){
-        File saveFile = new File("Test.txt");
+        File saveFile = new File(savedata.username +".txt");
         try{
             FileWriter filewriter = new FileWriter(saveFile);
             filewriter.write(savedata.pointdata.points + "\n");
             filewriter.write(savedata.pointdata.totalPoints + "\n");
             filewriter.write(savedata.pointdata.pointsPerLetter + "\n");
             filewriter.write(savedata.pointdata.pointsPerSec + "\n");
-            for(UpgradeData ud : savedata.upgradedataList){
+            for(UpgradeData ud : savedata.upgradeDataList){
                 filewriter.write(ud.index +"\n");
                 filewriter.write(ud.level +"\n");
             }

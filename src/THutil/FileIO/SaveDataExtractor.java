@@ -7,13 +7,15 @@ import Notifydata.SaveData;
 public class SaveDataExtractor {
    private PointHandler pointhandler;
    private UpgradeHandler upgradehandler;
+   private String username;
 
-   public SaveDataExtractor(PointHandler pointhandler,UpgradeHandler upgradehandler){
+   public SaveDataExtractor(String username,PointHandler pointhandler,UpgradeHandler upgradehandler){
+       this.username = username;
        this.pointhandler = pointhandler;
        this.upgradehandler = upgradehandler;
    }
 
    public SaveData getSaveData(){
-       return new SaveData(pointhandler.getPointData(),upgradehandler.getUpgradeDataList());
+       return new SaveData(username,pointhandler.getPointData(),upgradehandler.getUpgradeDataList());
    }
 }
