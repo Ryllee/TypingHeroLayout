@@ -4,6 +4,7 @@ import Notifydata.WordData;
 
 import java.util.ArrayList;
 import java.util.Observable;
+import java.util.Random;
 
 public class WordHandler extends Observable {
     private ArrayList<String> wordList;
@@ -11,12 +12,14 @@ public class WordHandler extends Observable {
     private int currentLetterIndex;
     private int currentWordIndex;
     private int currentStreak;
+    private Random r;
 
     public WordHandler(ArrayList<String> wordList,PointHandler points){
         this.wordList = wordList;
         this.pointhandler = points;
+        r = new Random();
         currentLetterIndex = 0;
-        currentWordIndex = 0;
+        currentWordIndex = r.nextInt(wordList.size());
         currentStreak = 0;
     }
 
@@ -52,7 +55,9 @@ public class WordHandler extends Observable {
    }
    private void nextWord(){
         pointhandler.wordCorrect(getCurrentWordLength(),currentStreak);
-        currentWordIndex++;
+
+        currentWordIndex = r.nextInt(wordList.size());
+
         currentLetterIndex = 0;
         currentStreak++;
         setChanged();
