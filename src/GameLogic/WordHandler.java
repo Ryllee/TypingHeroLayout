@@ -17,7 +17,7 @@ public class WordHandler extends Observable {
     public WordHandler(ArrayList<String> wordList,PointHandler points){
         this.wordList = wordList;
         this.pointhandler = points;
-        Random r = new Random();
+        r = new Random();
         currentLetterIndex = 0;
         currentWordIndex = r.nextInt(wordList.size());
         currentStreak = 0;
@@ -56,7 +56,6 @@ public class WordHandler extends Observable {
    private void nextWord(){
         pointhandler.wordCorrect(getCurrentWordLength(),currentStreak);
 
-       Random r = new Random();
         currentWordIndex = r.nextInt(wordList.size());
 
         currentLetterIndex = 0;
