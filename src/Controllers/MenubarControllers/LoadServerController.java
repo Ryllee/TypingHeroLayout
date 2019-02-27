@@ -17,13 +17,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class LoadLocalController implements EventHandler<ActionEvent> {
+public class LoadServerController implements EventHandler<ActionEvent> {
     private PointHandler pointhandler;
     private UpgradeHandler upgradehandler;
     private String username;
     private File saveFile;
 
-    public LoadLocalController(String username,PointHandler pointhandler,UpgradeHandler upgradehandler){
+    public LoadServerController(String username,PointHandler pointhandler,UpgradeHandler upgradehandler){
         this.username = username;
         this.pointhandler = pointhandler;
         this.upgradehandler = upgradehandler;
@@ -32,8 +32,8 @@ public class LoadLocalController implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         try{
-            String url = System.getProperty("user.dir");
-            saveFile = new File(url+"\\res\\"+username+".txt");
+
+            saveFile = Client.loadFromServer(username);
             SaveDataLoader.loadSaveData(SaveFileLoader.LoadFromFile(username,saveFile),pointhandler,upgradehandler);
         }catch (Exception e){
             System.out.println(e);

@@ -44,6 +44,30 @@ public class Client {
 
     public static File loadFromServer(String username){
         try{
+            Socket socket = new Socket("90.229.141.157",9999);
+            final int FILE_SIZE = 10000;
+            String url = System.getProperty("user.dir");
+            File loadedFile = new File(url+"\\res\\"+username +".txt");
+
+            DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
+            sendCommand.writeUTF("LOAD");
+            sendCommand.flush();
+
+            DataOutputStream sendFileName = new DataOutputStream(socket.getOutputStream());
+            sendFileName.writeUTF(username);
+            sendFileName.flush();
+
+            byte[] fileSize = new byte[FILE_SIZE];
+            InputStream input = socket.getInputStream();
+            FileOutputStream fileOut = new FileOutputStream(loadedFile);
+            BufferedOutputStream fileBOut = new BufferedOutputStream(fileOut);
+            int bytesread = input.read(fileSize, 0, fileSize.length);
+            fileBOut.write(fileSize,0,bytesread);
+            fileBOut.flush();
+            System.out.println("File " + username + ".txt downloaded(" + bytesread + " bytes read)");
+            fileBOut.close();
+            fileOut.close();
+            return loadedFile;
 
         }catch(Exception e){
             System.out.println(e);
