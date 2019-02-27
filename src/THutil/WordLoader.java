@@ -9,8 +9,8 @@ public class WordLoader {
     BufferedReader fileread;
 
     public WordLoader(){
-        URL url = getClass().getResource("1-1000.txt");
-        wordFile = new File(url.getPath());
+        String url = System.getProperty("user.dir");
+        wordFile = new File(url+"\\res\\1-1000.txt");
         try {
             fileread = new BufferedReader(new FileReader(wordFile));
         } catch (FileNotFoundException e) {
