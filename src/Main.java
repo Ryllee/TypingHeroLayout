@@ -1,5 +1,10 @@
+import THutil.FileIO.SaveFileLoader;
+import THutil.SaveDataLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.net.URL;
 import java.util.Timer;
 
 public class Main extends Application {
@@ -14,8 +19,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-       this.primaryStage = primaryStage;
+        
+        this.primaryStage = primaryStage;
         StartScreen startscreen = new StartScreen(this);
         primaryStage.setScene(startscreen.getScene());
 

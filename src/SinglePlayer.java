@@ -43,7 +43,7 @@ public class SinglePlayer {
         UpgradeController upgradecontroller = new UpgradeController(upgradehandler);
         SaveLocalController savelocalcontroller = new SaveLocalController(savedataextractor);
         SaveServerController saveservercontroller = new SaveServerController(savedataextractor);
-        LoadLocalController loadlocalcontroller = new LoadLocalController(pointhandler,upgradehandler);
+        LoadLocalController loadlocalcontroller = new LoadLocalController(username,pointhandler,upgradehandler);
 
         // CREATES PANELS
         mainWindow = new BorderPane();

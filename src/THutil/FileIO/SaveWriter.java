@@ -9,7 +9,8 @@ import java.io.FileWriter;
 public class SaveWriter {
 
     public static File writeToFile(SaveData savedata){
-        File saveFile = new File(savedata.username +".txt");
+        String url = System.getProperty("user.dir");
+        File saveFile = new File(url+"\\res\\"+savedata.username +".txt");
         try{
             FileWriter filewriter = new FileWriter(saveFile);
             filewriter.write(savedata.pointdata.points + "\n");
