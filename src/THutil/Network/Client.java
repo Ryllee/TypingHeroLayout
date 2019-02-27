@@ -13,6 +13,10 @@ public class Client {
         try {
             Socket socket = new Socket("90.229.141.157",9999);
 
+            DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
+            sendCommand.writeUTF("SAVE");
+            sendCommand.flush();
+
             DataOutputStream sendFilename = new DataOutputStream(socket.getOutputStream());
             sendFilename.writeUTF(savedata.username+".txt");
             sendFilename.flush();
@@ -36,5 +40,14 @@ public class Client {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    public static File loadFromServer(String username){
+        try{
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return null;
     }
 }
