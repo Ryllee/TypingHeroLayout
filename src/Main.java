@@ -1,10 +1,7 @@
-import THutil.FileIO.SaveFileLoader;
-import THutil.SaveDataLoader;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.net.URL;
 import java.util.Timer;
 
 public class Main extends Application {
