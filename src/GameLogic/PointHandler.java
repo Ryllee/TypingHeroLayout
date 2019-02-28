@@ -87,7 +87,6 @@ public class PointHandler extends Observable {
         {
             return ((int)(maxStreak/streakInterval)) +1;
         }
-        System.out.println(((int)(streak/streakInterval)) +1);
         return ((int)(streak/streakInterval)) +1;
     }
 

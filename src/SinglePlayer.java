@@ -4,10 +4,7 @@ import Controllers.MenubarControllers.LoadServerController;
 import Controllers.MenubarControllers.SaveLocalController;
 import Controllers.MenubarControllers.SaveServerController;
 import Controllers.UpgradeController;
-import GameLogic.PointHandler;
-import GameLogic.PointsPerSecondsTask;
-import GameLogic.UpgradeHandler;
-import GameLogic.WordHandler;
+import GameLogic.*;
 import Graphics.*;
 import THutil.FileIO.SaveDataExtractor;
 import THutil.WordLoader;
@@ -30,11 +27,13 @@ public class SinglePlayer {
 
         // CREATES HANDLER
         PointHandler pointhandler = new PointHandler();
-        WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler);
+        HealthHandler healthhandler = new HealthHandler(100,100);
+        WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler, healthhandler);
         UpgradeHandler upgradehandler = new UpgradeHandler();
 
         // CREATE TIMER
         timer.schedule(new PointsPerSecondsTask(pointhandler),0,1000);
+        timer.schedule(new DamagePerSecondTask(healthhandler),0,1000);
 
         // CREATE DATAEXTRACTOR
 
