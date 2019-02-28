@@ -1,6 +1,7 @@
 package Graphics;
 
 import javafx.animation.*;
+import javafx.scene.effect.Reflection;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -15,6 +16,7 @@ public class LetterGraphics extends Text {
         super(String.valueOf(c));
         setFont(Font.font("Helvetica", FontWeight.EXTRA_BOLD, 90));
         createAnimations();
+        createReflection();
         idleAnimation.play();
     }
 
@@ -25,6 +27,13 @@ public class LetterGraphics extends Text {
 
     public void incorrect() {
         incorrectAnimation.play();
+    }
+    private void createReflection() {
+        Reflection r = new Reflection();
+        r.setFraction(0.7f);
+        r.setTopOpacity(0.2f);
+        r.setBottomOpacity(0.01f);
+        setEffect(r);
     }
 
     private void createAnimations() {
@@ -51,6 +60,6 @@ public class LetterGraphics extends Text {
         incorrectAnimation = new FillTransition(Duration.millis(200), this,Color.BLACK,Color.RED);
         incorrectAnimation.setCycleCount(5);
         incorrectAnimation.setAutoReverse(true);
-        
+
     }
 }
