@@ -28,9 +28,19 @@ public class StartScreen {
                 }
             }
         });
+        Button startMultiplayer = new Button("Start Multiplayer");
+        startMultiplayer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(!usernameinput.getText().equals("")) {
+                    main.launchMultiplayer(usernameinput.getText());
+                }
+            }
+        });
         mainWindow.add(label,0,1);
         mainWindow.add(usernameinput,1,1);
         mainWindow.add(start,1,2);
+        mainWindow.add(startMultiplayer,1,3);
     }
 
     public Scene getScene(){
