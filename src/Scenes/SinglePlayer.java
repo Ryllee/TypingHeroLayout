@@ -1,3 +1,5 @@
+package Scenes;
+
 import Controllers.KeyController;
 import Controllers.MenubarControllers.LoadLocalController;
 import Controllers.MenubarControllers.LoadServerController;
@@ -18,10 +20,11 @@ import java.util.Timer;
 public class SinglePlayer {
 
      private BorderPane mainWindow;
+     private static Timer timer;
 
     public SinglePlayer(String username, Timer timer){
         WordLoader loader = new WordLoader();
-
+        this.timer = timer;
 
         // CREATES HANDLER
         PointHandler pointhandler = new PointHandler();
@@ -85,5 +88,11 @@ public class SinglePlayer {
 
     public Scene getScene(){
         return new Scene(mainWindow,900,600);
+    }
+
+    public static void gameOver() {
+        timer.cancel();
+        Main.launchGameOverScene();
+
     }
 }

@@ -1,4 +1,9 @@
+package Scenes;
 
+import Scenes.GameOverScene;
+import Scenes.HighscoreScene;
+import Scenes.SinglePlayer;
+import Scenes.StartScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -38,5 +43,8 @@ public class Main extends Application {
         StartScene startScene = new StartScene();
         primaryStage.setScene(startScene.getScene());
     }
-    
+    public static void launchGameOverScene(){
+        GameOverScene gameover = new GameOverScene();
+        primaryStage.setScene(gameover.getScene());
+    }
 }

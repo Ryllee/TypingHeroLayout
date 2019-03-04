@@ -1,3 +1,5 @@
+package Scenes;
+
 import THutil.Network.Client;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

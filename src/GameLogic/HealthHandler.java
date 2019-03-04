@@ -1,4 +1,7 @@
 package GameLogic;
+
+import Scenes.SinglePlayer;
+
 import java.util.Observable;
 
 public class HealthHandler extends Observable {
@@ -23,10 +26,11 @@ public class HealthHandler extends Observable {
     public void takeDamage(int amount) {
         if (health - amount < 0) {
             health = 0;
+            SinglePlayer.gameOver();
         } else {
             health -= amount;
+            setChanged();
+            notifyObservers(health);
         }
-        setChanged();
-        notifyObservers(health);
     }
 }
