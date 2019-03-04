@@ -18,8 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         
         this.primaryStage = primaryStage;
-        StartScreen startscreen = new StartScreen(this);
-        primaryStage.setScene(startscreen.getScene());
+        launchStartScene();
 
         // SHOW SCENE
         primaryStage.show();
@@ -30,6 +29,14 @@ public class Main extends Application {
         timer = new Timer();
         SinglePlayer singleplayer = new SinglePlayer(username,timer,this);
         primaryStage.setScene(singleplayer.getScene());
+    }
+    public void launchHighscore(){
+        HighscoreScene highscore = new HighscoreScene(this);
+        primaryStage.setScene(highscore.getScene());
+    }
+    public void launchStartScene(){
+        StartScene startScene = new StartScene(this);
+        primaryStage.setScene(startScene.getScene());
     }
 
     @Override

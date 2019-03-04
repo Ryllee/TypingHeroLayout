@@ -5,6 +5,9 @@ import THutil.FileIO.SaveWriter;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Client {
 
@@ -73,5 +76,29 @@ public class Client {
             System.out.println(e);
         }
         return null;
+    }
+
+    public static LinkedHashMap<String,String> getHighscore(){
+        try {
+
+            Socket socket = new Socket("localhost",9999);
+            DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
+            sendCommand.writeUTF("HIGHSCORE");
+
+
+            LinkedHashMap<String,String> highscoreMap = new LinkedHashMap<>();
+            DataInputStream input = new DataInputStream(socket.getInputStream());
+            String msg = input.readUTF();
+            int listSize = Integer.valueOf(msg);
+            for(int index = 0; index < listSize; index++){
+                String username = input.readUTF();
+                String score = input.readUTF();
+                highscoreMap.put(username,score);
+            }
+            return highscoreMap;
+        }catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
     }
 }
