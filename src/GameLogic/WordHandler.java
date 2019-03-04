@@ -9,14 +9,16 @@ import java.util.Random;
 public class WordHandler extends Observable {
     private ArrayList<String> wordList;
     private PointHandler pointhandler;
+    private HealthHandler healthhandler;
     private int currentLetterIndex;
     private int currentWordIndex;
     private int currentStreak;
     private Random r;
 
-    public WordHandler(ArrayList<String> wordList,PointHandler points){
+    public WordHandler(ArrayList<String> wordList,PointHandler pointhandler, HealthHandler healthhandler){
         this.wordList = wordList;
-        this.pointhandler = points;
+        this.pointhandler = pointhandler;
+        this.healthhandler = healthhandler;
         r = new Random();
         currentLetterIndex = 0;
         currentWordIndex = r.nextInt(wordList.size());
@@ -50,12 +52,13 @@ public class WordHandler extends Observable {
    }
    public void incorrectLetter(){
         currentStreak = 0;
+        healthhandler.takeDamage(2);
         setChanged();
         notifyObservers(new WordData(2,getCurrentWord(),currentLetterIndex));
    }
    private void nextWord(){
         pointhandler.wordCorrect(getCurrentWordLength(),currentStreak);
-
+        healthhandler.heal(2);
         currentWordIndex = r.nextInt(wordList.size());
 
         currentLetterIndex = 0;
