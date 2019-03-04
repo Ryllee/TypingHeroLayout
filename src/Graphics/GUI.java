@@ -12,7 +12,7 @@ public class GUI extends BorderPane {
         setLayoutPointCounterPanel(pointcounterpanel);
 
         setTop(pointcounterpanel);
-        setLeft(upgradepanel);
+        setBottom(upgradepanel);
         setCenter(wordpanel);
     }
     private void setLayoutWordPanel(WordPanel wordpanel){

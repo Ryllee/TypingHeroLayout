@@ -2,13 +2,12 @@ package Graphics;
 
 import Controllers.UpgradeController;
 import Notifydata.UpgradeData;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class UpgradePanel extends VBox implements Observer {
+public class UpgradePanel extends HBox implements Observer {
     private UpgradeController upgradecontroller;
     public UpgradePanel(UpgradeController upgradecontroller) {
         this.upgradecontroller = upgradecontroller;
