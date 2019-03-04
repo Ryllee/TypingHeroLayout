@@ -16,7 +16,8 @@ public class HealthHandler extends Observable {
         } else {
             health += amount;
         }
-        System.out.println("Health: " + health);
+        setChanged();
+        notifyObservers(health);
     }
 
     public void takeDamage(int amount) {
@@ -25,6 +26,7 @@ public class HealthHandler extends Observable {
         } else {
             health -= amount;
         }
-        System.out.println("Health: " + health);
+        setChanged();
+        notifyObservers(health);
     }
 }

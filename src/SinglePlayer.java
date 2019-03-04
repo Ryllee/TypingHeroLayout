@@ -36,7 +36,6 @@ public class SinglePlayer {
         timer.schedule(new DamagePerSecondTask(healthhandler),0,1000);
 
         // CREATE DATAEXTRACTOR
-
         SaveDataExtractor savedataextractor = new SaveDataExtractor(username,pointhandler,upgradehandler);
 
         // CREATE CONTROLLER
@@ -51,12 +50,15 @@ public class SinglePlayer {
         WordPanel wordpanel = new WordPanel();
         PointCounterPanel pointcounterpanel = new PointCounterPanel();
         UpgradePanel upgradepanel = new UpgradePanel(upgradecontroller);
-        GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel);
+        HealthPanel healthpanel = new HealthPanel();
+        GUI gui = new GUI(wordpanel,upgradepanel,pointcounterpanel,healthpanel);
+
 
         // ADD OBSERVERS
         wordhandler.addObserver(wordpanel);
         pointhandler.addObserver(pointcounterpanel);
         upgradehandler.addObserver(upgradepanel);
+        healthhandler.addObserver(healthpanel);
 
         //CREATE UPGRADES
         createUpgrades(pointhandler,upgradehandler);
