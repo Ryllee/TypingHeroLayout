@@ -26,6 +26,8 @@ import java.util.Timer;
 public class SinglePlayer {
 
      private BorderPane mainWindow;
+     private static Timeline pointsPerSecTimeline;
+     private static Timeline damagePerSecTimeline;
 
     public SinglePlayer(String username){
         WordLoader loader = new WordLoader();
@@ -92,11 +94,11 @@ public class SinglePlayer {
     }
 
     private void startTimeLines(PointHandler pointhandler, HealthHandler healthhandler){
-        Timeline pointsPerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> pointhandler.pointsPerSecTick()));
+        pointsPerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> pointhandler.pointsPerSecTick()));
         pointsPerSecTimeline.setCycleCount(Animation.INDEFINITE);
         pointsPerSecTimeline.play();
 
-        Timeline damagePerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> healthhandler.takeDamage(1)));
+        damagePerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> healthhandler.takeDamage(1)));
         damagePerSecTimeline.setCycleCount(Animation.INDEFINITE);
         damagePerSecTimeline.play();
     }
@@ -106,7 +108,8 @@ public class SinglePlayer {
     }
 
     public static void gameOver() {
+        pointsPerSecTimeline.stop();
+        damagePerSecTimeline.stop();
         Main.launchGameOverScene();
-
     }
 }
