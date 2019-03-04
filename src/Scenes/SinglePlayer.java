@@ -10,21 +10,25 @@ import GameLogic.*;
 import Graphics.*;
 import THutil.FileIO.SaveDataExtractor;
 import THutil.WordLoader;
+import Upgrades.HealUpgrade;
 import Upgrades.PointsPerLetterUpgrade;
 import Upgrades.PointsPerSecondUpgrade;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
 
 import java.util.Timer;
 
 public class SinglePlayer {
 
      private BorderPane mainWindow;
-     private static Timer timer;
 
-    public SinglePlayer(String username, Timer timer){
+    public SinglePlayer(String username){
         WordLoader loader = new WordLoader();
-        this.timer = timer;
 
         // CREATES HANDLER
         PointHandler pointhandler = new PointHandler();
@@ -32,9 +36,8 @@ public class SinglePlayer {
         WordHandler wordhandler = new WordHandler(loader.loadWords(),pointhandler, healthhandler);
         UpgradeHandler upgradehandler = new UpgradeHandler();
 
-        // CREATE TIMER
-        timer.schedule(new PointsPerSecondsTask(pointhandler),0,1000);
-        timer.schedule(new DamagePerSecondTask(healthhandler),0,1000);
+        //CREATE TIMER
+        startTimeLines(pointhandler,healthhandler);
 
         // CREATE DATAEXTRACTOR
         SaveDataExtractor savedataextractor = new SaveDataExtractor(username,pointhandler,upgradehandler);
@@ -62,7 +65,7 @@ public class SinglePlayer {
         healthhandler.addObserver(healthpanel);
 
         //CREATE UPGRADES
-        createUpgrades(pointhandler,upgradehandler);
+        createUpgrades(pointhandler,upgradehandler,healthhandler);
 
         // CREATE MENYBAR
         Menubar menu = new Menubar(savelocalcontroller,saveservercontroller,loadlocalcontroller,loadservercontroller);
@@ -79,11 +82,23 @@ public class SinglePlayer {
 
 
     }
-    private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades){
+    private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades,HealthHandler healthhandler){
         PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(pointhandler);
         PointsPerSecondUpgrade secondUpgrade = new PointsPerSecondUpgrade(pointhandler);
+        HealUpgrade healupgrade = new HealUpgrade(pointhandler,healthhandler);
         upgrades.addUpgrade(letterUpgrade);
         upgrades.addUpgrade(secondUpgrade);
+        upgrades.addUpgrade(healupgrade);
+    }
+
+    private void startTimeLines(PointHandler pointhandler, HealthHandler healthhandler){
+        Timeline pointsPerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> pointhandler.pointsPerSecTick()));
+        pointsPerSecTimeline.setCycleCount(Animation.INDEFINITE);
+        pointsPerSecTimeline.play();
+
+        Timeline damagePerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> healthhandler.takeDamage(1)));
+        damagePerSecTimeline.setCycleCount(Animation.INDEFINITE);
+        damagePerSecTimeline.play();
     }
 
     public Scene getScene(){
@@ -91,7 +106,6 @@ public class SinglePlayer {
     }
 
     public static void gameOver() {
-        timer.cancel();
         Main.launchGameOverScene();
 
     }

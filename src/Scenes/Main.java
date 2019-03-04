@@ -31,8 +31,7 @@ public class Main extends Application {
     }
 
     public static void launchSinglePlayer(String username){
-        Timer timer = new Timer(true);
-        SinglePlayer singleplayer = new SinglePlayer(username,timer);
+        SinglePlayer singleplayer = new SinglePlayer(username);
         primaryStage.setScene(singleplayer.getScene());
     }
     public static void launchHighscore(){

@@ -13,8 +13,8 @@ public class Client {
 
     public static void saveOnServer(SaveData savedata){
         File savefile = SaveWriter.writeToFile(savedata);
-        try {
-            Socket socket = new Socket("90.229.141.157",9999);
+        try {//90.229.141.157
+            Socket socket = new Socket("localhost",9999);
 
             DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
             sendCommand.writeUTF("SAVE");
@@ -47,7 +47,7 @@ public class Client {
 
     public static File loadFromServer(String username){
         try{
-            Socket socket = new Socket("90.229.141.157",9999);
+            Socket socket = new Socket("localhost",9999);
             final int FILE_SIZE = 10000;
             String url = System.getProperty("user.dir");
             File loadedFile = new File(url+"\\res\\"+username +".txt");
