@@ -12,11 +12,9 @@ import java.util.Set;
 public class HighscoreScene {
 
     private StackPane mainWindow;
-    private Main main;
 
-    public HighscoreScene(Main main) {
+    public HighscoreScene() {
         mainWindow = new StackPane();
-        this.main = main;
         LinkedHashMap<String, String> highscore = Client.getHighscore();
         if (highscore != null) {
             Set<String> keys = highscore.keySet();
@@ -29,7 +27,7 @@ public class HighscoreScene {
                 rowindex++;
             }
             Button back = new Button("Back to menu");
-            back.setOnAction(event -> main.launchStartScene());
+            back.setOnAction(event -> Main.launchStartScene());
             back.setTranslateY(100);
             Label hslabel = new Label(sb.toString());
             mainWindow.getChildren().add(hslabel);

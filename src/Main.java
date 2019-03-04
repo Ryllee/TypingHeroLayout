@@ -7,7 +7,7 @@ import java.util.Timer;
 public class Main extends Application {
 
     private Timer timer;
-    private Stage primaryStage;
+    private static Stage primaryStage;
 
     public static void main(String[] args)
     {
@@ -25,25 +25,18 @@ public class Main extends Application {
 
     }
 
-    public void launchSinglePlayer(String username){
-        timer = new Timer();
-        SinglePlayer singleplayer = new SinglePlayer(username,timer,this);
+    public static void launchSinglePlayer(String username){
+        Timer timer = new Timer(true);
+        SinglePlayer singleplayer = new SinglePlayer(username,timer);
         primaryStage.setScene(singleplayer.getScene());
     }
-    public void launchHighscore(){
-        HighscoreScene highscore = new HighscoreScene(this);
+    public static void launchHighscore(){
+        HighscoreScene highscore = new HighscoreScene();
         primaryStage.setScene(highscore.getScene());
     }
-    public void launchStartScene(){
-        StartScene startScene = new StartScene(this);
+    public static void launchStartScene(){
+        StartScene startScene = new StartScene();
         primaryStage.setScene(startScene.getScene());
     }
-
-    @Override
-    public void stop() throws Exception {
-        if(timer != null) {
-            timer.cancel();
-        }
-        super.stop();
-    }
+    
 }

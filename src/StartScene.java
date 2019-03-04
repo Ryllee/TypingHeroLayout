@@ -15,12 +15,11 @@ import java.util.Set;
 
 public class StartScene {
     private GridPane mainWindow;
-    private Main main;
 
-    public StartScene(Main main){
+    public StartScene(){
         mainWindow = new GridPane();
         setConstraints(mainWindow);
-        this.main=main;
+
         Label label = new Label("     Username:");
         TextField usernameinput = new TextField();
         Button start = new Button("Start SinglePlayer");
@@ -29,14 +28,14 @@ public class StartScene {
             @Override
             public void handle(ActionEvent event) {
                 if(!usernameinput.getText().equals("")) {
-                    main.launchSinglePlayer(usernameinput.getText());
+                    Main.launchSinglePlayer(usernameinput.getText());
                 }
             }
         });
         highscorebutton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                main.launchHighscore();
+                Main.launchHighscore();
             }
         });
         mainWindow.add(label,0,1);

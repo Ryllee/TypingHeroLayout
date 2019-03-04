@@ -18,10 +18,8 @@ import java.util.Timer;
 public class SinglePlayer {
 
      private BorderPane mainWindow;
-     private Main main;
 
-    public SinglePlayer(String username, Timer timer, Main main){
-        this.main = main;
+    public SinglePlayer(String username, Timer timer){
         WordLoader loader = new WordLoader();
 
 
