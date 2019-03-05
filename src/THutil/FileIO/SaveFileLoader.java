@@ -24,8 +24,8 @@ public class SaveFileLoader {
             pointdata.pointsPerLetter = Float.valueOf(fileread.readLine());
             pointdata.pointsPerSec = Float.valueOf(fileread.readLine());
             String line = null;
-            UpgradeData upgradedata = new UpgradeData(0,0,"");
             while((line = fileread.readLine()) != null){
+                UpgradeData upgradedata = new UpgradeData(0,0,"");
                 upgradedata.index = Integer.valueOf(line);
                 upgradedata.level = Integer.valueOf(fileread.readLine());
                 upgradedata.name = null;
