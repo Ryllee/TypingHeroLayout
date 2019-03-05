@@ -27,7 +27,7 @@ public class Main extends Application {
 
     /**
      * Skapar SinglePlayer och sätter primaryStage Scene till singleplayer
-     * @param username tar in username som används i olika funktionen tex spara/ladda
+     * @param username tar in username som används i olika metoder tex spara/ladda
      */
     public static void launchSinglePlayer(String username){
         SinglePlayer singleplayer = new SinglePlayer(username);
