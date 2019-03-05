@@ -4,11 +4,9 @@ package Scenes;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.util.Timer;
 
 public class Main extends Application {
 
-    private Timer timer;
     private static Stage primaryStage;
 
     public static void main(String[] args)
@@ -28,7 +26,6 @@ public class Main extends Application {
     }
 
     /**
-     * launchSinglePlayer
      * Skapar SinglePlayer och sätter primaryStage Scene till singleplayer
      * @param username tar in username som används i olika funktionen tex spara/ladda
      */
@@ -38,7 +35,6 @@ public class Main extends Application {
     }
 
     /**
-     * launchHighscore
      * Skapar HighscoreScene och sätter primaryStage Scene till highscore
      */
     public static void launchHighscore(){
@@ -46,7 +42,6 @@ public class Main extends Application {
         primaryStage.setScene(highscore.getScene());
     }
     /**
-     * launchStartScene
      * Skapar StartScene och sätter primaryStage Scene till startScene
      */
     public static void launchStartScene(){
@@ -54,7 +49,6 @@ public class Main extends Application {
         primaryStage.setScene(startScene.getScene());
     }
     /**
-     * launchGameOverScene
      * Skapar gameOverScene och sätter primaryStage Scene till gameover
      */
     public static void launchGameOverScene(){

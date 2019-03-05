@@ -30,7 +30,6 @@ public class SinglePlayer {
      private static Timeline damagePerSecTimeline;
 
     /**
-     * SinglePlayer
      * Konstruktorn för SinglePlayer, skapar och startar allt som behövs i SinglePlayer
      * (Handlers,grafikPaneler,kontroller och Datakapslar
      * @param username används som inparameter till spara och ladda metoder
@@ -90,6 +89,13 @@ public class SinglePlayer {
 
 
     }
+
+    /**
+     * Skapar uppgraderingar samt lägger till kontroller till varje.
+     * @param pointhandler skickar en referens till en pointhandler
+     * @param upgrades skickar en referens till upgrades
+     * @param healthhandler skickar en referens till healthhandler
+     */
     private static void createUpgrades(PointHandler pointhandler, UpgradeHandler upgrades,HealthHandler healthhandler){
         PointsPerLetterUpgrade letterUpgrade = new PointsPerLetterUpgrade(pointhandler);
         PointsPerSecondUpgrade secondUpgrade = new PointsPerSecondUpgrade(pointhandler);
@@ -99,6 +105,11 @@ public class SinglePlayer {
         upgrades.addUpgrade(healupgrade);
     }
 
+    /**
+     * Skapar två timelines som används för att kalla metoder parallellt med main programmet
+     * @param pointhandler skickar referens till pointhandler
+     * @param healthhandler skicakr referens till healthandler
+     */
     private void startTimeLines(PointHandler pointhandler, HealthHandler healthhandler){
         pointsPerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> pointhandler.pointsPerSecTick()));
         pointsPerSecTimeline.setCycleCount(Animation.INDEFINITE);
@@ -109,10 +120,17 @@ public class SinglePlayer {
         damagePerSecTimeline.play();
     }
 
+    /**
+     * Returnerar Singleplayers Scene
+     * @return en ny Scene som är mainWindow
+     */
     public Scene getScene(){
         return new Scene(mainWindow,900,600);
     }
 
+    /**
+     * Stänger av Timelines så de slutas köra parallellt och kallar på GameoverScene
+     */
     public static void gameOver() {
         pointsPerSecTimeline.stop();
         damagePerSecTimeline.stop();
