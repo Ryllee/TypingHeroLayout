@@ -10,7 +10,7 @@ public class WordLoader {
 
     public WordLoader(){
         String url = System.getProperty("user.dir");
-        wordFile = new File(url+"\\res\\1-1000.txt");
+        wordFile = new File(url+"/res/1-1000.txt");
         try {
             fileread = new BufferedReader(new FileReader(wordFile));
         } catch (FileNotFoundException e) {

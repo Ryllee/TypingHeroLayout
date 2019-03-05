@@ -33,7 +33,7 @@ public class LoadLocalController implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         try{
             String url = System.getProperty("user.dir");
-            saveFile = new File(url+"\\res\\"+username+".txt");
+            saveFile = new File(url+"/res/"+username+".txt");
             SaveDataLoader.loadSaveData(SaveFileLoader.LoadFromFile(username,saveFile),pointhandler,upgradehandler);
         }catch (Exception e){
             System.out.println(e);

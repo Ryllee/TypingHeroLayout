@@ -10,7 +10,7 @@ public class SaveWriter {
 
     public static File writeToFile(SaveData savedata){
         String url = System.getProperty("user.dir");
-        File saveFile = new File(url+"\\res\\"+savedata.username +".txt");
+        File saveFile = new File(url+"/res/"+savedata.username +".txt");
         try{
             FileWriter filewriter = new FileWriter(saveFile);
             filewriter.write(savedata.pointdata.points + "\n");
