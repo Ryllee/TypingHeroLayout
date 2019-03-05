@@ -1,7 +1,7 @@
 package THutil.FileIO;
 
-import Notifydata.SaveData;
-import Notifydata.UpgradeData;
+import DataEncapsulation.SaveData;
+import DataEncapsulation.UpgradeData;
 
 import java.io.File;
 import java.io.FileWriter;

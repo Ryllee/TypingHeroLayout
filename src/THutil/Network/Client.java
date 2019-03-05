@@ -1,12 +1,10 @@
 package THutil.Network;
 
-import Notifydata.SaveData;
+import DataEncapsulation.SaveData;
 import THutil.FileIO.SaveWriter;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class Client {

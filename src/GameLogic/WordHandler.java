@@ -1,6 +1,6 @@
 package GameLogic;
 
-import Notifydata.WordData;
+import DataEncapsulation.WordData;
 
 import java.util.ArrayList;
 import java.util.Observable;

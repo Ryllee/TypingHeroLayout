@@ -1,7 +1,5 @@
 package GameLogic;
 
-import Notifydata.UpgradeData;
-
 public abstract class Upgrade {
     protected PointHandler pointhandler;
     private String name;

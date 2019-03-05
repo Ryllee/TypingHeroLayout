@@ -29,6 +29,12 @@ public class SinglePlayer {
      private static Timeline pointsPerSecTimeline;
      private static Timeline damagePerSecTimeline;
 
+    /**
+     * SinglePlayer
+     * Konstruktorn för SinglePlayer, skapar och startar allt som behövs i SinglePlayer
+     * (Handlers,grafikPaneler,kontroller och Datakapslar
+     * @param username används som inparameter till spara och ladda metoder
+     */
     public SinglePlayer(String username){
         WordLoader loader = new WordLoader();
 

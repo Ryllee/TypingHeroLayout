@@ -1,4 +1,4 @@
-package Notifydata;
+package DataEncapsulation;
 
 public class PointData {
     public float points;

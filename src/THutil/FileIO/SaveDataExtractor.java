@@ -2,7 +2,7 @@ package THutil.FileIO;
 
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
-import Notifydata.SaveData;
+import DataEncapsulation.SaveData;
 
 public class SaveDataExtractor {
    private PointHandler pointhandler;

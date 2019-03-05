@@ -2,9 +2,6 @@ package Controllers.MenubarControllers;
 
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
-import Notifydata.PointData;
-import Notifydata.SaveData;
-import Notifydata.UpgradeData;
 import THutil.FileIO.SaveFileLoader;
 import THutil.Network.Client;
 import THutil.SaveDataLoader;
@@ -12,10 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import java.io.File;
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class LoadServerController implements EventHandler<ActionEvent> {
     private PointHandler pointhandler;

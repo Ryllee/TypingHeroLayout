@@ -1,6 +1,6 @@
 package GameLogic;
 
-import Notifydata.UpgradeData;
+import DataEncapsulation.UpgradeData;
 
 import java.util.ArrayList;
 import java.util.Observable;

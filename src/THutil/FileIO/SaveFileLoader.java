@@ -1,8 +1,8 @@
 package THutil.FileIO;
 
-import Notifydata.PointData;
-import Notifydata.SaveData;
-import Notifydata.UpgradeData;
+import DataEncapsulation.PointData;
+import DataEncapsulation.SaveData;
+import DataEncapsulation.UpgradeData;
 
 import java.io.BufferedReader;
 import java.io.File;

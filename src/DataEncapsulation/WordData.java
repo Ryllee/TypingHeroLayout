@@ -1,4 +1,4 @@
-package Notifydata;
+package DataEncapsulation;
 
 public class WordData {
     public int command; // 1 = CORRECT | 2 = INCORRECT | 3 = NEXT_WORD

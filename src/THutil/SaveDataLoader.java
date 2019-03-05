@@ -2,7 +2,7 @@ package THutil;
 
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
-import Notifydata.SaveData;
+import DataEncapsulation.SaveData;
 
 public class SaveDataLoader {
 

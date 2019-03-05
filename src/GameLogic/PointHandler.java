@@ -1,6 +1,6 @@
 package GameLogic;
 
-import Notifydata.PointData;
+import DataEncapsulation.PointData;
 
 import java.util.Observable;
 

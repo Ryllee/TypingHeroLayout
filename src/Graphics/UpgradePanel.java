@@ -1,7 +1,7 @@
 package Graphics;
 
 import Controllers.UpgradeController;
-import Notifydata.UpgradeData;
+import DataEncapsulation.UpgradeData;
 import javafx.scene.layout.HBox;
 
 import java.util.Observable;

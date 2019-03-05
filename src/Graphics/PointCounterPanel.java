@@ -1,7 +1,7 @@
 package Graphics;
 
 
-import Notifydata.PointData;
+import DataEncapsulation.PointData;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
