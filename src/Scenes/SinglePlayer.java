@@ -115,7 +115,7 @@ public class SinglePlayer {
         pointsPerSecTimeline.setCycleCount(Animation.INDEFINITE);
         pointsPerSecTimeline.play();
 
-        damagePerSecTimeline = new Timeline(new KeyFrame(Duration.millis(1000),ae -> healthhandler.takeDamage(1)));
+        damagePerSecTimeline = new Timeline(new KeyFrame(Duration.millis(500),ae -> healthhandler.takeDamage(1)));
         damagePerSecTimeline.setCycleCount(Animation.INDEFINITE);
         damagePerSecTimeline.play();
     }
