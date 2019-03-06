@@ -4,6 +4,7 @@ import THutil.FileIO.SaveDataExtractor;
 import THutil.Network.Client;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 
 public class SaveServerController implements EventHandler<ActionEvent> {
     SaveDataExtractor savedataextractor;
@@ -14,7 +15,14 @@ public class SaveServerController implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        Client.saveOnServer(savedataextractor.getSaveData());
-        System.out.println("Save Server pressed");
+        try {
+            Client.saveOnServer(savedataextractor.getSaveData());
+        } catch (Exception e){
+            Alert connectionFailedAlert = new Alert(Alert.AlertType.ERROR);
+            connectionFailedAlert.setTitle("Error");
+            connectionFailedAlert.setHeaderText("Connection Error");
+            connectionFailedAlert.setContentText("Couldn't connect to server.\nSaved locally.");
+            connectionFailedAlert.showAndWait();
+        }
     }
 }

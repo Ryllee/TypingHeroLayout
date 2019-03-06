@@ -10,7 +10,7 @@ public class HealUpgrade extends Upgrade {
 
     public HealUpgrade(PointHandler pointhandler, HealthHandler healthhandler){
         super(pointhandler, "Heal", "Heal",
-                15,0,10, 1f);
+                15,0,0, 1f);
         this.healthhandler = healthhandler;
     }
 

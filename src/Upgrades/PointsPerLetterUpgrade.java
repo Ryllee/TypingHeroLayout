@@ -6,7 +6,7 @@ import GameLogic.Upgrade;
 public class PointsPerLetterUpgrade extends Upgrade {
 
     public PointsPerLetterUpgrade(PointHandler pointhandler){
-        super(pointhandler, "PointsPerLetterUpgrade", "Increase your PointsPerLetter by one",
+        super(pointhandler, "Increase points per word", "Increase your PointsPerLetter by one",
                 10,0,10, 1.5f);
 
 

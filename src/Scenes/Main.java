@@ -18,6 +18,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         
         this.primaryStage = primaryStage;
+        primaryStage.setTitle("Typing Hero");
         launchStartScene();
 
         // SHOW SCENE

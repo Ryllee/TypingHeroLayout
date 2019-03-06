@@ -28,13 +28,17 @@ public class HighscoreScene {
                 sb.append((rowindex + 1) + ": " + username + " " + highscore.get(hs) + "\n");
                 rowindex++;
             }
-            Button back = new Button("Back to menu");
-            back.setOnAction(event -> Main.launchStartScene());
-            back.setTranslateY(100);
             Label hslabel = new Label(sb.toString());
             mainWindow.getChildren().add(hslabel);
-            mainWindow.getChildren().add(back);
+        } else {
+            Label connectionErrorLabel = new Label("Couldn't connect to server.");
+            mainWindow.getChildren().add(connectionErrorLabel);
         }
+        Button back = new Button("Back to menu");
+        back.setOnAction(event -> Main.launchStartScene());
+        back.setTranslateY(100);
+
+        mainWindow.getChildren().add(back);
     }
 
 

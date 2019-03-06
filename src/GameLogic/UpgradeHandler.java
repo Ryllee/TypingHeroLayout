@@ -17,7 +17,7 @@ public class UpgradeHandler extends Observable {
         Upgrade pressedUpgrade = upgradelist.get(ButtonIndex);
         if(pressedUpgrade.purchaseUpgrade()){
             setChanged();
-            notifyObservers(new UpgradeData(ButtonIndex,pressedUpgrade.getCurrentLevel(),pressedUpgrade.getName()));
+            notifyObservers(new UpgradeData(ButtonIndex,pressedUpgrade.getCurrentLevel(),pressedUpgrade.getCost(),pressedUpgrade.getName()));
         }
     }
 
@@ -25,7 +25,7 @@ public class UpgradeHandler extends Observable {
         ArrayList<UpgradeData> returnList = new ArrayList<>();
         for(int index = 0; index < upgradelist.size(); index++){
             Upgrade current = upgradelist.get(index);
-            returnList.add(new UpgradeData(index,current.getCurrentLevel(),current.getName()));
+            returnList.add(new UpgradeData(index,current.getCurrentLevel(),current.getCost(),current.getName()));
         }
         return returnList;
     }
@@ -33,6 +33,10 @@ public class UpgradeHandler extends Observable {
     public void loadUpgradeData( ArrayList<UpgradeData> upgradedataList){
         for(UpgradeData ud : upgradedataList){
             upgradelist.get(ud.index).setCurrentLevel(ud.level);
+            ud.name = upgradelist.get(ud.index).getName();
+            ud.cost = upgradelist.get(ud.index).getCost();
+            setChanged();
+            notifyObservers(ud);
         }
     }
 
@@ -40,7 +44,7 @@ public class UpgradeHandler extends Observable {
         upgradelist.add(upgrade);
         int upgradeIndex = upgradelist.size() - 1;
         setChanged();
-        notifyObservers(new UpgradeData(upgradeIndex,upgrade.getCurrentLevel(),upgrade.getName()));
+        notifyObservers(new UpgradeData(upgradeIndex,upgrade.getCurrentLevel(),upgrade.getCost(), upgrade.getName()));
     }
 
 }

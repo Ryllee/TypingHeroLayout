@@ -22,7 +22,7 @@ public abstract class Upgrade {
 
 
     public boolean purchaseUpgrade(){
-        if(currentLevel < maxLevel) {
+        if(currentLevel < maxLevel || maxLevel == 0) {
             System.out.println("pressed");
             if (pointhandler.purchase(getCost())) {
                 performUpgrade();

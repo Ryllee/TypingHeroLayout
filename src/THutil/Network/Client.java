@@ -9,9 +9,9 @@ import java.util.LinkedHashMap;
 
 public class Client {
 
-    public static void saveOnServer(SaveData savedata){
+    public static void saveOnServer(SaveData savedata) throws Exception{
         File savefile = SaveWriter.writeToFile(savedata);
-        try {//90.229.141.157
+        //90.229.141.157
             Socket socket = new Socket("localhost",9999);
 
             DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
@@ -38,13 +38,10 @@ public class Client {
             String serverResponse = (String) response.readUTF();
             System.out.println(serverResponse);
 
-        }catch (Exception e){
-            System.out.println(e);
-        }
     }
 
-    public static File loadFromServer(String username){
-        try{
+    public static File loadFromServer(String username) throws Exception{
+
             Socket socket = new Socket("localhost",9999);
             final int FILE_SIZE = 10000;
             String url = System.getProperty("user.dir");
@@ -70,10 +67,6 @@ public class Client {
             fileOut.close();
             return loadedFile;
 
-        }catch(Exception e){
-            System.out.println(e);
-        }
-        return null;
     }
 
     public static LinkedHashMap<String,String> getHighscore(){
