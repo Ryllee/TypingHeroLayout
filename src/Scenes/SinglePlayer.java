@@ -10,18 +10,16 @@ import GameLogic.*;
 import Graphics.*;
 import THutil.FileIO.SaveDataExtractor;
 import THutil.WordLoader;
-import Upgrades.HealUpgrade;
-import Upgrades.PointsPerLetterUpgrade;
-import Upgrades.PointsPerSecondUpgrade;
+import GameLogic.Upgrades.HealUpgrade;
+import GameLogic.Upgrades.PointsPerLetterUpgrade;
+import GameLogic.Upgrades.PointsPerSecondUpgrade;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
-import java.util.Timer;
 
 public class SinglePlayer {
 

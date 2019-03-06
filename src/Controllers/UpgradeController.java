@@ -1,6 +1,6 @@
 package Controllers;
 
-import GameLogic.Upgrade;
+
 import GameLogic.UpgradeHandler;
 import Graphics.UpgradeButton;
 import javafx.event.ActionEvent;

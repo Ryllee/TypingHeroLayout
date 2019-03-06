@@ -1,4 +1,4 @@
-package Upgrades;
+package GameLogic.Upgrades;
 
 import GameLogic.HealthHandler;
 import GameLogic.PointHandler;

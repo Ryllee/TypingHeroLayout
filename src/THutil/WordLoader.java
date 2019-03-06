@@ -1,7 +1,6 @@
 package THutil;
 
 import java.io.*;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class WordLoader {
