@@ -2,6 +2,7 @@ package Scenes;
 
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -18,6 +19,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         
         this.primaryStage = primaryStage;
+        String url = System.getProperty("user.dir");
+        primaryStage.getIcons().add(new Image("file:"+url+"/res/iconTH.png"));
         primaryStage.setTitle("Typing Hero");
         launchStartScene();
 
