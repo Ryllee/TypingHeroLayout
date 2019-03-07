@@ -3,7 +3,11 @@ package Graphics;
 import Controllers.UpgradeController;
 import DataEncapsulation.UpgradeData;
 import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -11,6 +15,7 @@ import java.util.Observer;
 public class UpgradePanel extends HBox implements Observer {
     private UpgradeController upgradecontroller;
     public UpgradePanel(UpgradeController upgradecontroller) {
+        setBackground(new Background(new BackgroundFill(Color.web("#242424"), CornerRadii.EMPTY, Insets.EMPTY)));
         this.upgradecontroller = upgradecontroller;
     }
 

@@ -15,6 +15,8 @@ public class LetterGraphics extends Text {
     public LetterGraphics(char c) {
         super(String.valueOf(c));
         setFont(Font.font("Helvetica", FontWeight.EXTRA_BOLD, 90));
+        setFill(Color.WHITE);
+
         createAnimations();
         createReflection();
         idleAnimation.play();
@@ -51,13 +53,13 @@ public class LetterGraphics extends Text {
         startCorrectAnimation.setCycleCount(2);
         startCorrectAnimation.setAutoReverse(true);
 
-        FillTransition correctFillAnimaion = new FillTransition(Duration.millis(150), this,Color.BLACK,Color.LIMEGREEN);
+        FillTransition correctFillAnimaion = new FillTransition(Duration.millis(150), this,Color.WHITE,Color.LIMEGREEN);
         correctFillAnimaion.setCycleCount(1);
 
         correctAnimation = new ParallelTransition(this,startCorrectAnimation, correctFillAnimaion);
 
         //Incorrect
-        incorrectAnimation = new FillTransition(Duration.millis(200), this,Color.BLACK,Color.RED);
+        incorrectAnimation = new FillTransition(Duration.millis(200), this,Color.WHITE,Color.RED);
         incorrectAnimation.setCycleCount(5);
         incorrectAnimation.setAutoReverse(true);
 

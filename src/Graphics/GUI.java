@@ -13,6 +13,7 @@ public class GUI extends BorderPane {
         setLayoutPointCounterPanel(pointcounterpanel);
 
         BorderPane gameplayWindow = new BorderPane();
+        gameplayWindow.setBackground(new Background(new BackgroundFill(Color.web("#2d2d2d"), CornerRadii.EMPTY, Insets.EMPTY)));
         gameplayWindow.setCenter(wordpanel);
         gameplayWindow.setBottom(healthpanel);
         gameplayWindow.setMargin(healthpanel,new Insets(20,20,20,20));
@@ -31,7 +32,7 @@ public class GUI extends BorderPane {
     }
 
     private void setLayoutPointCounterPanel(PointCounterPanel pointcounterpanel){
-        pointcounterpanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        //pointcounterpanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         pointcounterpanel.setPrefHeight(50);
     }
 

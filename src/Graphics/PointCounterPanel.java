@@ -2,8 +2,14 @@ package Graphics;
 
 
 import DataEncapsulation.PointData;
+import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import java.text.DecimalFormat;
@@ -20,20 +26,25 @@ public class PointCounterPanel extends HBox implements Observer {
 
     public PointCounterPanel(){
         super(25);
+        setBackground(new Background(new BackgroundFill(Color.web("#2d2d2d"), CornerRadii.EMPTY, Insets.EMPTY)));
         df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
-        Text staticTextPoints = new Text("POINTS: ");
+        Text staticTextPoints = new Text("Points: ");
         getChildren().add(staticTextPoints);
-        staticTextPoints.setFont(Font.font("Comic Sans MS", 20));
+        staticTextPoints.setFont(Font.font("Helvetica",FontWeight.BOLD, 20));
+        staticTextPoints.setFill(Color.WHITE);
         textPoints = new Text("0");
-        textPoints.setFont(Font.font("Comic Sans MS", 20));
+        textPoints.setFont(Font.font("Helvetica",FontWeight.BOLD, 20));
+        textPoints.setFill(Color.WHITE);
         getChildren().add(textPoints);
 
-        Text staticTextTotalPoints = new Text("TOTALPOINTS: ");
-        staticTextTotalPoints.setFont(Font.font("Comic Sans MS", 20));
+        Text staticTextTotalPoints = new Text("Total points: ");
+        staticTextTotalPoints.setFont(Font.font("Helvetica",FontWeight.BOLD, 20));
+        staticTextTotalPoints.setFill(Color.WHITE);
         getChildren().add(staticTextTotalPoints);
         textTotalPoints = new Text("0");
-        textTotalPoints.setFont(Font.font("Comic Sans MS", 20));
+        textTotalPoints.setFont(Font.font("Helvetica", FontWeight.BOLD, 20));
+        textTotalPoints.setFill(Color.WHITE);
         getChildren().add(textTotalPoints);
     }
 
