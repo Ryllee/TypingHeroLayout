@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -27,6 +29,7 @@ public class HighscoreScene {
                 rowindex++;
             }
             Label hslabel = new Label(sb.toString());
+            hslabel.setFont(Font.font("Helvetica", 15));
             mainWindow.getChildren().add(hslabel);
         } else {
             Label connectionErrorLabel = new Label("Couldn't connect to server.");
