@@ -35,7 +35,9 @@ public class Main extends Application {
      */
     public static void launchSinglePlayer(String username){
         SinglePlayer singleplayer = new SinglePlayer(username);
+        primaryStage.hide();
         primaryStage.setScene(singleplayer.getScene());
+        primaryStage.show();
     }
 
     /**
@@ -57,6 +59,8 @@ public class Main extends Application {
      */
     public static void launchGameOverScene(){
         GameOverScene gameover = new GameOverScene();
+        primaryStage.hide();
         primaryStage.setScene(gameover.getScene());
+        primaryStage.show();
     }
 }
