@@ -1,6 +1,6 @@
 package Controllers.MenubarControllers;
 
-import THutil.FileIO.SaveDataExtractor;
+import THutil.SaveDataExtractor;
 import THutil.FileIO.SaveWriter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

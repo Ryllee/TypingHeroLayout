@@ -1,4 +1,4 @@
-package THutil.FileIO;
+package THutil;
 
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
