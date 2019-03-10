@@ -42,19 +42,23 @@ public class Client {
 
     public static File loadFromServer(String username) throws Exception{
 
-            Socket socket = new Socket("localhost",9999);
-            final int FILE_SIZE = 10000;
-            String url = System.getProperty("user.dir");
-            File loadedFile = new File(url+"\\res\\"+username +".txt");
+        Socket socket = new Socket("localhost",9999);
+        final int FILE_SIZE = 10000;
+        String url = System.getProperty("user.dir");
+        File loadedFile = new File(url+"\\res\\"+username +".txt");
 
-            DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
-            sendCommand.writeUTF("LOAD");
-            sendCommand.flush();
+        DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
+        sendCommand.writeUTF("LOAD");
+        sendCommand.flush();
 
-            DataOutputStream sendFileName = new DataOutputStream(socket.getOutputStream());
-            sendFileName.writeUTF(username);
-            sendFileName.flush();
+        DataOutputStream sendFileName = new DataOutputStream(socket.getOutputStream());
+        sendFileName.writeUTF(username);
+        sendFileName.flush();
 
+        DataInputStream reciveIfFileExist = new DataInputStream(socket.getInputStream());
+        String fileExist = reciveIfFileExist.readUTF();
+
+        if(fileExist.equals("TRUE")) {
             byte[] fileSize = new byte[FILE_SIZE];
             InputStream input = socket.getInputStream();
             FileOutputStream fileOut = new FileOutputStream(loadedFile);
@@ -66,6 +70,11 @@ public class Client {
             fileBOut.close();
             fileOut.close();
             return loadedFile;
+        }
+        else{
+            System.out.println("File don't exist on server");
+            return null;
+        }
 
     }
 
