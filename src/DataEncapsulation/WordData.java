@@ -5,6 +5,12 @@ public class WordData {
     public String word;
     public int currentLetterIndex;
 
+    /**
+     * Skapar en WordData
+     * @param command vilket kommando som ska utföras
+     * @param word vilket ord man ska skicka
+     * @param currentLetterIndex vilken plats i ordet man är på
+     */
     public WordData(int command, String word, int currentLetterIndex){
         this.command = command;
         this.word = word;

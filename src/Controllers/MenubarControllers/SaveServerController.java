@@ -9,10 +9,18 @@ import javafx.scene.control.Alert;
 public class SaveServerController implements EventHandler<ActionEvent> {
     SaveDataExtractor savedataextractor;
 
+    /**
+     * Skapar en SaveServerController
+     * @param savedataextractor vilken savadataextractor den ska känna till
+     */
     public SaveServerController(SaveDataExtractor savedataextractor){
         this.savedataextractor = savedataextractor;
     }
 
+    /**
+     * Vad som ska ske när man tryck på rätt menyalternativ
+     * @param event det menyalternativ man tryckt på
+     */
     @Override
     public void handle(ActionEvent event) {
         try {

@@ -12,6 +12,9 @@ public class GameOverScene {
 
     private StackPane mainWindow;
 
+    /**
+     * Konstruktor för GameOverScene, skapar allt som behöves i scenen
+     */
     public GameOverScene() {
         mainWindow = new StackPane();
             Button back = new Button("Back to menu");
@@ -23,7 +26,10 @@ public class GameOverScene {
         }
 
 
-
+    /**
+     * Skapar en Scene av GameOver
+     * @return Scenen av GameOver
+     */
     public Scene getScene(){
         return new Scene(mainWindow,390,390);
     }

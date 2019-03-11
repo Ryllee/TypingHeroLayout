@@ -11,6 +11,10 @@ public class HealthPanel extends StackPane implements Observer {
     private Rectangle greenHP;
     private Rectangle redHP;
     private static double sizeMultiplier = 5;
+
+    /**
+     * Konstruktor för HealthPanel, skapar allt som behöves för att visa livspoäng
+     */
     public HealthPanel(){
         greenHP = new Rectangle(100*sizeMultiplier,50);
         greenHP.setFill(Color.LIMEGREEN);

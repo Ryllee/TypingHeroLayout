@@ -7,7 +7,11 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class SaveWriter {
-
+    /**
+     * Skriver en sparfil
+     * @param savedata vilken SaveData som ska skrivas till sparfilen
+     * @return sparfilen som nyss skapats
+     */
     public static File writeToFile(SaveData savedata){
         String url = System.getProperty("user.dir");
         File saveFile = new File(url+"/res/"+savedata.username +".txt");

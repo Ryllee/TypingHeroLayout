@@ -15,6 +15,13 @@ public class Menubar extends MenuBar {
     private MenuItem loadFromFile;
     private MenuItem loadFromServer;
 
+    /**
+     * Konstruktor för menubar
+     * @param saveLocal controller för saveLocal
+     * @param saveServer controller för saveServer
+     * @param loadLocal controller för loadLocal
+     * @param loadServer controller för loadServer
+     */
     public Menubar(SaveLocalController saveLocal, SaveServerController saveServer, LoadLocalController loadLocal,LoadServerController loadServer){
         filemenu = new Menu("File");
         saveToFile = new MenuItem("Save to file");
@@ -30,6 +37,13 @@ public class Menubar extends MenuBar {
         getMenus().add(filemenu);
     }
 
+    /**
+     * Skapar controllers till alla menyalternativ
+     * @param saveLocal controller för saveLocal
+     * @param saveServer controller för saveServer
+     * @param loadLocal controller för loadLocal
+     * @param loadServer controller för loadServer
+     */
     private void addMenubarControllers(SaveLocalController saveLocal, SaveServerController saveServer, LoadLocalController loadLocal, LoadServerController loadServer){
         saveToFile.setOnAction(saveLocal);
         saveToServer.setOnAction(saveServer);
