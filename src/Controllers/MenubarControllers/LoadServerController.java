@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 
 import java.io.File;
+import java.nio.file.NoSuchFileException;
 
 public class LoadServerController implements EventHandler<ActionEvent> {
     private PointHandler pointhandler;
@@ -29,7 +30,15 @@ public class LoadServerController implements EventHandler<ActionEvent> {
 
             saveFile = Client.loadFromServer(username);
             SaveDataLoader.loadSaveData(SaveFileLoader.LoadFromFile(username,saveFile),pointhandler,upgradehandler);
-        }catch (Exception e){
+        } catch (NoSuchFileException e) {
+            Alert connectionFailedAlert = new Alert(Alert.AlertType.ERROR);
+            connectionFailedAlert.setTitle("Error");
+            connectionFailedAlert.setHeaderText("No Such File");
+            connectionFailedAlert.setContentText("Couldn't find a save file for username: " + username + ".");
+            connectionFailedAlert.showAndWait();
+        }
+
+        catch (Exception e){
             Alert connectionFailedAlert = new Alert(Alert.AlertType.ERROR);
             connectionFailedAlert.setTitle("Error");
             connectionFailedAlert.setHeaderText("Connection Error");

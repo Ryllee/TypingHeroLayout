@@ -5,6 +5,7 @@ import THutil.FileIO.SaveWriter;
 
 import java.io.*;
 import java.net.Socket;
+import java.nio.file.NoSuchFileException;
 import java.util.LinkedHashMap;
 
 public class Client {
@@ -72,8 +73,7 @@ public class Client {
             return loadedFile;
         }
         else{
-            System.out.println("File don't exist on server");
-            return null;
+            throw new NoSuchFileException("No such file found on server.");
         }
 
     }
