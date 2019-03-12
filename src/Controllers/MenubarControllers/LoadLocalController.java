@@ -6,6 +6,7 @@ import THutil.FileIO.SaveFileLoader;
 import THutil.SaveDataLoader;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 
 import java.io.File;
 
@@ -38,7 +39,11 @@ public class LoadLocalController implements EventHandler<ActionEvent> {
             saveFile = new File(url+"/res/"+username+".txt");
             SaveDataLoader.loadSaveData(SaveFileLoader.LoadFromFile(username,saveFile),pointhandler,upgradehandler);
         }catch (Exception e){
-            System.out.println(e);
+            Alert connectionFailedAlert = new Alert(Alert.AlertType.ERROR);
+            connectionFailedAlert.setTitle("Error");
+            connectionFailedAlert.setHeaderText("File Error");
+            connectionFailedAlert.setContentText("Couldn't find file " + username + ".txt");
+            connectionFailedAlert.showAndWait();
         }
     }
 }
