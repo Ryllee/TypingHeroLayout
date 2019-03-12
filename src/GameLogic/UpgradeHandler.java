@@ -8,11 +8,18 @@ import java.util.Observable;
 public class UpgradeHandler extends Observable {
     private ArrayList<Upgrade> upgradelist;
 
+    /**
+     * Konstuktor för UpgradeHandler, skapar en lista av upgrades
+     */
     public UpgradeHandler()
     {
         upgradelist = new ArrayList<Upgrade>();
     }
 
+    /**
+     * Kollar vilken Upgrade som ska reagera på trycket
+     * @param ButtonIndex vilken knappindex som trycks
+     */
     public void upgradeButtonPressed(int ButtonIndex){
         Upgrade pressedUpgrade = upgradelist.get(ButtonIndex);
         if(pressedUpgrade.purchaseUpgrade()){
@@ -21,6 +28,10 @@ public class UpgradeHandler extends Observable {
         }
     }
 
+    /**
+     * Skapar en lista av Upgraderingar
+     * @return listan av upgraderingar
+     */
     public ArrayList<UpgradeData> getUpgradeDataList(){
         ArrayList<UpgradeData> returnList = new ArrayList<>();
         for(int index = 0; index < upgradelist.size(); index++){
@@ -30,6 +41,10 @@ public class UpgradeHandler extends Observable {
         return returnList;
     }
 
+    /**
+     * Ladda in upgrades data från en lista
+     * @param upgradedataList vilken lista datan ska laddas ifrån
+     */
     public void loadUpgradeData( ArrayList<UpgradeData> upgradedataList){
         for(UpgradeData ud : upgradedataList){
             upgradelist.get(ud.index).setCurrentLevel(ud.level);
@@ -40,6 +55,10 @@ public class UpgradeHandler extends Observable {
         }
     }
 
+    /**
+     * Lägger till en uppgradering i listan som skapades i konstruktorn
+     * @param upgrade vilken uppgradering som ska läggas till
+     */
     public void addUpgrade(Upgrade upgrade){
         upgradelist.add(upgrade);
         int upgradeIndex = upgradelist.size() - 1;

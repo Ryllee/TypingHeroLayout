@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+
 
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -15,6 +15,9 @@ public class HighscoreScene {
 
     private StackPane mainWindow;
 
+    /**
+     * Konstruktor för HighscoreScene skapar allt som behöves i Scenen
+     */
     public HighscoreScene() {
         mainWindow = new StackPane();
         LinkedHashMap<String, String> highscore = Client.getHighscore();
@@ -42,7 +45,10 @@ public class HighscoreScene {
         mainWindow.getChildren().add(back);
     }
 
-
+    /**
+     * Skapar en Scene av Highscore
+     * @return Scenen av HighScore
+     */
     public Scene getScene(){
         return new Scene(mainWindow,390,390);
     }

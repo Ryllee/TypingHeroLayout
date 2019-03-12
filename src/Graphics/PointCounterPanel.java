@@ -23,7 +23,9 @@ public class PointCounterPanel extends HBox implements Observer {
     private DecimalFormat df;
 
 
-
+    /**
+     * Konstruktor för PointCounterPanel, skapar allt som ska visas i Panelen
+     */
     public PointCounterPanel(){
         super(25);
         setBackground(new Background(new BackgroundFill(Color.web("#2d2d2d"), CornerRadii.EMPTY, Insets.EMPTY)));
@@ -48,6 +50,11 @@ public class PointCounterPanel extends HBox implements Observer {
         getChildren().add(textTotalPoints);
     }
 
+    /**
+     *
+     * @param o
+     * @param arg
+     */
     @Override
     public void update(Observable o, Object arg) {
         if(arg instanceof PointData){

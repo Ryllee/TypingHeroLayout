@@ -10,7 +10,12 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class SaveFileLoader {
-
+    /**
+     * Läser in spardata från en sparfil
+     * @param username vilket username spelaren använder
+     * @param saveFile vilken sparfile som ska läsas in
+     * @return en SaveData innehållande informationen från sparfilen
+     */
     public static SaveData LoadFromFile(String username,File saveFile){
         try {
 

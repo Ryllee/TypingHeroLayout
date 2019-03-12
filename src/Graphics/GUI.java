@@ -5,10 +5,15 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 public class GUI extends BorderPane {
-
+    /**
+     * Skapar en layout för spelet
+     * @param wordpanel vilken WordPanel som ska visas
+     * @param upgradepanel vilken UpgradePanel som ska visas
+     * @param pointcounterpanel vilken PointCounterPanel som ska visas
+     * @param healthpanel vilken HealthPanel som ska visas
+     */
     public GUI(WordPanel wordpanel,UpgradePanel upgradepanel, PointCounterPanel pointcounterpanel,HealthPanel healthpanel){
 
-        setLayoutWordPanel(wordpanel);
         setLayoutUpgradePanel(upgradepanel);
         setLayoutPointCounterPanel(pointcounterpanel);
 
@@ -23,16 +28,20 @@ public class GUI extends BorderPane {
         setBottom(upgradepanel);
         setCenter(gameplayWindow);
     }
-    private void setLayoutWordPanel(WordPanel wordpanel){
-       // wordpanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-    }
 
+    /**
+     * Sätter en border till en UpgradePanel
+     * @param upgradepanel vilken UpgradePanel den ska sätta den till
+     */
     private void setLayoutUpgradePanel(UpgradePanel upgradepanel){
         upgradepanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
     }
 
+    /**
+     * Sätter en prefHeight till en PointCounterPanel
+     * @param pointcounterpanel vilken PointCounterPanel den ska sättas till
+     */
     private void setLayoutPointCounterPanel(PointCounterPanel pointcounterpanel){
-        //pointcounterpanel.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         pointcounterpanel.setPrefHeight(50);
     }
 

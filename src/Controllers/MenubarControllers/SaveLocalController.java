@@ -9,11 +9,18 @@ public class SaveLocalController implements EventHandler<ActionEvent> {
     SaveDataExtractor savedataextractor;
 
 
-
+    /**
+     * Skapar en SaveLocalController
+     * @param savedataextractor vilken savadataextractor den ska känna till
+     */
     public SaveLocalController(SaveDataExtractor savedataextractor){
         this.savedataextractor = savedataextractor;
     }
 
+    /**
+     * Vad som ska ske när man tryck på rätt menyalternativ
+     * @param event det menyalternativ man tryckt på
+     */
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Save Local pressed");

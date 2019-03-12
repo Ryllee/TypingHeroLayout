@@ -7,6 +7,9 @@ public class WordLoader {
     File wordFile;
     BufferedReader fileread;
 
+    /**
+     * Konstruktor för wordloader
+     */
     public WordLoader(){
         String url = System.getProperty("user.dir");
         wordFile = new File(url+"/res/1-1000.txt");
@@ -17,6 +20,10 @@ public class WordLoader {
         }
     }
 
+    /**
+     * Läser in ord från en fil
+     * @return Arraylist av ord som läst in
+     */
     public ArrayList<String> loadWords(){
         String line = null;
         ArrayList<String> result = new ArrayList<String>();

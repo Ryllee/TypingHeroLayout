@@ -1,6 +1,6 @@
 package Scenes;
 
-import THutil.Network.Client;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -11,13 +11,15 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 
-import java.util.LinkedHashMap;
-import java.util.Set;
+
 
 
 public class StartScene {
     private GridPane mainWindow;
 
+    /**
+     * Konstruktor för StartScene skapar allt som behöves i startscene
+     */
     public StartScene(){
         mainWindow = new GridPane();
         setConstraints(mainWindow);
@@ -46,10 +48,18 @@ public class StartScene {
         mainWindow.add(highscorebutton,1,3);
     }
 
+    /**
+     * Skapar en scene av StartScene
+     * @return en scene av StartScene
+     */
     public Scene getScene(){
         return new Scene(mainWindow,390,390);
     }
 
+    /**
+     * Sätter layouten för StartScene
+     * @param mainWindow är vilken Pane som layouten ska sättas på
+     */
     private void setConstraints(GridPane mainWindow){
         mainWindow.getColumnConstraints().add(new ColumnConstraints(130));
         mainWindow.getColumnConstraints().add(new ColumnConstraints(130));

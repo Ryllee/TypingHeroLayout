@@ -9,7 +9,11 @@ import java.nio.file.NoSuchFileException;
 import java.util.LinkedHashMap;
 
 public class Client {
-
+    /**
+     * Spara en sparfil först lokalt och sedan skickas till server
+     * @param savedata vilken spardata som ska sparas
+     * @throws Exception
+     */
     public static void saveOnServer(SaveData savedata) throws Exception{
         File savefile = SaveWriter.writeToFile(savedata);
         //90.229.141.157
@@ -41,6 +45,12 @@ public class Client {
 
     }
 
+    /**
+     * Ladda sparfil från servern med samma username som spelaren
+     * @param username vilken fil som ska laddas in / det username spelaren använder
+     * @return sparfilen som hämtats från servern
+     * @throws Exception
+     */
     public static File loadFromServer(String username) throws Exception{
 
         Socket socket = new Socket("localhost",9999);
@@ -78,6 +88,10 @@ public class Client {
 
     }
 
+    /**
+     * Hämtar ett Highscore från servern
+     * @return en LinkedHashMap som innehåller Highscore
+     */
     public static LinkedHashMap<String,String> getHighscore(){
         try {
 
