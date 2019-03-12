@@ -5,7 +5,11 @@ import DataEncapsulation.WordData;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
-
+/**
+ * Hanterar vilket ord som är det nuvarande samt jämför knapptryck med en bokstav i ordet.
+ * @author Arvid Holmqvist
+ * @version 2019-03-12
+ */
 public class WordHandler extends Observable {
     private ArrayList<String> wordList;
     private PointHandler pointhandler;

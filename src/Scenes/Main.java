@@ -5,7 +5,11 @@ import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
+/**
+ * Huvudklass som startar spelet. Hanterar byte av scen.
+ * @author Hedda Ringgren
+ * @version 2019-03-12
+ */
 public class Main extends Application {
 
     private static Stage primaryStage;

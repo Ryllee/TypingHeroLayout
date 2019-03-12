@@ -2,7 +2,11 @@ package GameLogic.Upgrades;
 
 import GameLogic.PointHandler;
 import GameLogic.Upgrade;
-
+/**
+ * Uppgradering som ökar spelarens poäng per bokstav.
+ * @author Hedda Ringgren
+ * @version 2019-03-12
+ */
 public class PointsPerLetterUpgrade extends Upgrade {
     /**
      * Skapar en PointsPerLetterUpgrade

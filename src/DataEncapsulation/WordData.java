@@ -1,5 +1,10 @@
 package DataEncapsulation;
 
+/**
+ * Inkappslings-klass för data som rör ord.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class WordData {
     public int command; // 1 = CORRECT | 2 = INCORRECT | 3 = NEXT_WORD
     public String word;

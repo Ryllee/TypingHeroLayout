@@ -20,7 +20,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
-
+/**
+ * Klass som kopplar samman relevanta klasser för att starta spelet.
+ * @author Arvid Holmqvist
+ * @version 2019-03-12
+ */
 public class SinglePlayer {
 
      private BorderPane mainWindow;

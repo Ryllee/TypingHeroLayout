@@ -10,7 +10,11 @@ import javafx.scene.text.Font;
 
 import java.util.LinkedHashMap;
 import java.util.Set;
-
+/**
+ * Scen som visar highscore som laddas hem från server.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class HighscoreScene {
 
     private StackPane mainWindow;

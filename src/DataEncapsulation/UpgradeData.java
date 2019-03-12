@@ -1,7 +1,11 @@
 package DataEncapsulation;
 
 
-
+/**
+ * Inkappslings-klass för data som rör uppgraderingar.
+ * @author Arvid Holmqvist
+ * @version 2019-03-12
+ */
 public class UpgradeData {
     public int index;
     public int level;

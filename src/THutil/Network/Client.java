@@ -7,7 +7,11 @@ import java.io.*;
 import java.net.Socket;
 import java.nio.file.NoSuchFileException;
 import java.util.LinkedHashMap;
-
+/**
+ * Hanterar anslutning till server.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class Client {
     /**
      * Spara en sparfil först lokalt och sedan skickas till server

@@ -10,6 +10,11 @@ import javafx.scene.control.Alert;
 
 import java.io.File;
 
+/**
+ * Controller-klass för menyalternativet Load from file.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class LoadLocalController implements EventHandler<ActionEvent> {
     private PointHandler pointhandler;
     private UpgradeHandler upgradehandler;

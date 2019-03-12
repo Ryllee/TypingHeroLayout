@@ -3,7 +3,11 @@ package THutil;
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
 import DataEncapsulation.SaveData;
-
+/**
+ * Laddar in spardata till handlers.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class SaveDataLoader {
     /**
      * Laddar in spardata till rätt Handler

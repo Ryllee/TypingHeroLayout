@@ -2,7 +2,11 @@ package DataEncapsulation;
 
 
 import java.util.ArrayList;
-
+/**
+ * Inkappslings-klass som samlar relevant data för att ladda och spara.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class SaveData {
     public String username;
     public PointData pointdata;

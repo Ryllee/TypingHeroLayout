@@ -2,7 +2,11 @@ package GameLogic.Upgrades;
 
 import GameLogic.PointHandler;
 import GameLogic.Upgrade;
-
+/**
+ * Uppgradering som ökar spelarens poäng per sekund.
+ * @author Elma Esati
+ * @version 2019-03-12
+ */
 public class PointsPerSecondUpgrade extends Upgrade {
     /**
      * Skapar en PointsPerSecondUpgrade

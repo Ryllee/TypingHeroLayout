@@ -5,7 +5,11 @@ import THutil.Network.Client;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
-
+/**
+ * Controller-klass för menyalternativet Save to Server.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class SaveServerController implements EventHandler<ActionEvent> {
     SaveDataExtractor savedataextractor;
 

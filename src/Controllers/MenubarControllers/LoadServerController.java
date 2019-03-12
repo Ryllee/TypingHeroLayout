@@ -11,7 +11,11 @@ import javafx.scene.control.Alert;
 
 import java.io.File;
 import java.nio.file.NoSuchFileException;
-
+/**
+ * Controller-klass för menyalternativet Load from Server.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class LoadServerController implements EventHandler<ActionEvent> {
     private PointHandler pointhandler;
     private UpgradeHandler upgradehandler;

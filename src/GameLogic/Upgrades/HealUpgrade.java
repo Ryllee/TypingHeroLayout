@@ -4,7 +4,11 @@ import GameLogic.HealthHandler;
 import GameLogic.PointHandler;
 import GameLogic.Upgrade;
 
-
+/**
+ * Uppgradering som ökar spelarens livspoäng.
+ * @author Elma Esati
+ * @version 2019-03-12
+ */
 public class HealUpgrade extends Upgrade {
     private HealthHandler healthhandler;
 

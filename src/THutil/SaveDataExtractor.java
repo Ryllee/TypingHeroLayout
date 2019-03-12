@@ -3,7 +3,11 @@ package THutil;
 import GameLogic.PointHandler;
 import GameLogic.UpgradeHandler;
 import DataEncapsulation.SaveData;
-
+/**
+ * Extraherar och kombinerar data från Handlers.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class SaveDataExtractor {
    private PointHandler pointhandler;
    private UpgradeHandler upgradehandler;

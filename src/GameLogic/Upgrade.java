@@ -1,5 +1,9 @@
 package GameLogic;
-
+/**
+ * Abstrakt klass som för uppgraderingar.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public abstract class Upgrade {
     protected PointHandler pointhandler;
     private String name;

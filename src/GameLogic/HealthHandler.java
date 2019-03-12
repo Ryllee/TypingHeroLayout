@@ -3,7 +3,11 @@ package GameLogic;
 import Scenes.SinglePlayer;
 
 import java.util.Observable;
-
+/**
+ * Hanterar spelarens livspoäng.
+ * @author Elma Esati
+ * @version 2019-03-12
+ */
 public class HealthHandler extends Observable {
     private int health;
     private int maxHP;

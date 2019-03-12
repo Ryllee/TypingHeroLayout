@@ -16,7 +16,11 @@ import java.text.DecimalFormat;
 import java.util.Observable;
 import java.util.Observer;
 
-
+/**
+ * Panel som visar information om spelarens poäng.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class PointCounterPanel extends HBox implements Observer {
     private Text textPoints;
     private Text textTotalPoints;
@@ -53,7 +57,7 @@ public class PointCounterPanel extends HBox implements Observer {
     /**
      *
      * @param o
-     * @param arg
+     * @param arg PointData-objekt som innehåller samlad poäng-data.
      */
     @Override
     public void update(Observable o, Object arg) {

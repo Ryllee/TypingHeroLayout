@@ -3,7 +3,11 @@ package GameLogic;
 import DataEncapsulation.PointData;
 
 import java.util.Observable;
-
+/**
+ * Hanterar spelarens poäng.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class PointHandler extends Observable {
     private float points;
     private float totalPoints;

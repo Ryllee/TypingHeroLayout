@@ -5,7 +5,11 @@ import DataEncapsulation.UpgradeData;
 
 import java.io.File;
 import java.io.FileWriter;
-
+/**
+ * Skriver filer.
+ * @author Hedda Ringgren
+ * @version 2019-03-12
+ */
 public class SaveWriter {
     /**
      * Skriver en sparfil

@@ -1,7 +1,11 @@
 package Graphics;
 
 import javafx.scene.control.Button;
-
+/**
+ * Knapp för uppgradering.
+ * @author Arvid Holmqvist
+ * @version 2019-03-12
+ */
 public class UpgradeButton extends Button {
     private int index;
 

@@ -7,7 +7,11 @@ import Controllers.MenubarControllers.SaveServerController;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-
+/**
+ * Menyfält.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class Menubar extends MenuBar {
     private Menu filemenu;
     private MenuItem saveToFile;

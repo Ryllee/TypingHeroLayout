@@ -8,10 +8,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-
+/**
+ * Läser in en fil till rätt format.
+ * @author Elma Esati
+ * @version 2019-03-12
+ */
 public class SaveFileLoader {
     /**
-     * Läser in spardata från en sparfil
+     * Konstruktor för SaveFileLoader
      * @param username vilket username spelaren använder
      * @param saveFile vilken sparfile som ska läsas in
      * @return en SaveData innehållande informationen från sparfilen
@@ -19,8 +23,6 @@ public class SaveFileLoader {
     public static SaveData LoadFromFile(String username,File saveFile){
         try {
 
-
-            //File saveFile = new File(username+".txt");
             PointData pointdata = new PointData(0,0,0,0);
             ArrayList<UpgradeData> upgradeDataList = new ArrayList<>();
             BufferedReader fileread = new BufferedReader(new FileReader(saveFile));

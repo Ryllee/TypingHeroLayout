@@ -4,6 +4,11 @@ import GameLogic.WordHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * Controller-klass som hanterar tangentbordsinmatning.
+ * @author Arvid Holmqvist
+ * @version 2019-03-12
+ */
 public class KeyController implements EventHandler<KeyEvent> {
     private WordHandler wordhandler;
 

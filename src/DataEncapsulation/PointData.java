@@ -1,5 +1,10 @@
 package DataEncapsulation;
 
+/**
+ * Inkappslings-klass för data som rör poäng.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class PointData {
     public float points;
     public float totalPoints;

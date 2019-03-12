@@ -3,7 +3,11 @@ package Graphics;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-
+/**
+ * Tar emot alla paneler som behövs för att bygga upp användargränssnittet och placerar ut dessa.
+ * @author Eric Rylander
+ * @version 2019-03-12
+ */
 public class GUI extends BorderPane {
     /**
      * Skapar en layout för spelet

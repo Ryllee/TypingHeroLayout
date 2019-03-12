@@ -4,7 +4,11 @@ import THutil.SaveDataExtractor;
 import THutil.FileIO.SaveWriter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
+/**
+ * Controller-klass för menyalternativet Save to File.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class SaveLocalController implements EventHandler<ActionEvent> {
     SaveDataExtractor savedataextractor;
 

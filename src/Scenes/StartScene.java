@@ -13,7 +13,11 @@ import javafx.scene.layout.RowConstraints;
 
 
 
-
+/**
+ * Första scenen som visas. Ger spelaren val om att starta spelet eller att visa highscore.
+ * @author Elma Esati
+ * @version 2019-03-12
+ */
 public class StartScene {
     private GridPane mainWindow;
 

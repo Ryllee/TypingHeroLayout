@@ -2,7 +2,11 @@ package THutil.FileIO;
 
 import java.io.*;
 import java.util.ArrayList;
-
+/**
+ * Laddar in ord från en fil och skapar en lista.
+ * @author Arvid Holmqvist
+ * @version 2019-03-12
+ */
 public class WordLoader {
     File wordFile;
     BufferedReader fileread;

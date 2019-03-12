@@ -6,7 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 
-
+/**
+ * Scen som visas när spelaren förlorat.
+ * @author Hedda Ringgren
+ * @version 2019-03-12
+ */
 public class GameOverScene {
 
 

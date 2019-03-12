@@ -4,7 +4,11 @@ import DataEncapsulation.UpgradeData;
 
 import java.util.ArrayList;
 import java.util.Observable;
-
+/**
+ * Hanterar alla uppgraderingar.
+ * @author Joel Petersson
+ * @version 2019-03-12
+ */
 public class UpgradeHandler extends Observable {
     private ArrayList<Upgrade> upgradelist;
 
