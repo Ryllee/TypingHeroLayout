@@ -56,7 +56,7 @@ public class Client {
         Socket socket = new Socket("localhost",9999);
         final int FILE_SIZE = 10000;
         String url = System.getProperty("user.dir");
-        File loadedFile = new File(url+"\\res\\"+username +".txt");
+        File loadedFile = new File(url+"/res/"+username +".txt");
 
         DataOutputStream sendCommand = new DataOutputStream(socket.getOutputStream());
         sendCommand.writeUTF("LOAD");
